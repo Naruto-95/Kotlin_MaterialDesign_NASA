@@ -1,7 +1,8 @@
-package com.example.kotlin_materialdesign_nasa
+package com.example.kotlin_materialdesign_nasa.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlin_materialdesign_nasa.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

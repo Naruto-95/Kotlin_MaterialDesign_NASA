@@ -3,12 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/picture"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    >
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout"
+        android:id="@+id/inputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/search_wiki"
@@ -23,8 +24,39 @@
             android:id="@+id/input_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.example.kotlin_materialdesign_nasa.utils.EquilateralImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/photo_of_the_day_stub"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout"
+        app:srcCompat="@drawable/ic_no_photo_vector" />
 
+    <FrameLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible">
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:minHeight="50dp"
+            android:minWidth="200dp" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

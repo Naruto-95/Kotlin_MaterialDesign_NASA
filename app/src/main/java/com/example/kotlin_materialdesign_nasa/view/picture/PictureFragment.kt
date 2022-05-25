@@ -1,5 +1,7 @@
 package com.example.kotlin_materialdesign_nasa.view.picture
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,15 +33,6 @@ class PictureFragment : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
-            renderData(it)
-        })
-        viewModel.sendRequest()
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,11 +41,33 @@ class PictureFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
+            renderData(it)
+        })
+        viewModel.sendRequest()
+        wikipediaClick()
+    }
+
+    private fun wikipediaClick() {
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
+
+        }
+
+
+    }
+
+
     private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.Success -> {
                 binding.loading.visibility = View.GONE
-                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.url){
+                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.url) {
                     crossfade(true)
                     placeholder(R.drawable.ic_cloud)
                     //transformations(CircleCropTransformation())

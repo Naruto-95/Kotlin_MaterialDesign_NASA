@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPictureBinding
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
@@ -52,21 +51,22 @@ class PictureFragment : Fragment() {
     private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.Success -> {
-                binding.loadingLayout.visibility = View.GONE
-                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.hdurl){
+                binding.loading.visibility = View.GONE
+                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.url){
                     crossfade(true)
                     placeholder(R.drawable.ic_cloud)
-                   // transformations(CircleCropTransformation())
+                    //transformations(CircleCropTransformation())
+
                 }
 
 
             }
             is PictureOfTheDataAppState.Loading -> {
-                binding.loadingLayout.visibility = View.VISIBLE
+                binding.loading.visibility = View.VISIBLE
 
             }
             is PictureOfTheDataAppState.Error -> {
-                binding.loadingLayout.visibility = View.GONE
+                binding.loading.visibility = View.GONE
 
             }
         }

@@ -36,7 +36,7 @@ class PictureFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPictureBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -67,10 +67,13 @@ class PictureFragment : Fragment() {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.Success -> {
                 binding.loading.visibility = View.GONE
-                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.url) {
+                binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.hdurl) {
                     crossfade(true)
                     placeholder(R.drawable.ic_cloud)
                     //transformations(CircleCropTransformation())
+                    binding.btnSheet.title.text = pictureOfTheDataAppState.pictureOfTheResponseData.title
+                    binding.btnSheet.explanation.text = pictureOfTheDataAppState.pictureOfTheResponseData.explanation
+                    //binding.btnSheet.imageViewUrl.load(pictureOfTheDataAppState.pictureOfTheResponseData.url)
 
                 }
 

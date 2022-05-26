@@ -8,4 +8,7 @@
     <string name="search">Search</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Today">Сегодня</string>
+    <string name="Yesterday">Вчера</string>
+    <string name="TDBY">Позавчера</string>
 </resources>

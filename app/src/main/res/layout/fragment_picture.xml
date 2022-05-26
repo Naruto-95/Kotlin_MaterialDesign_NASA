@@ -34,6 +34,8 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
         <com.example.kotlin_materialdesign_nasa.utils.EquilateralImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -64,13 +66,13 @@
                 android:minWidth="200dp"
                 android:minHeight="50dp" />
 
+
         </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
         android:id="@+id/btnSheet"
         layout="@layout/bottom_sheet_layout" />
-
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
@@ -88,6 +90,8 @@
         android:backgroundTint="#8D0CDC"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/plus_fab"
-        app:tint="#FFFFFF" />
+        app:tint="#FFFFFF"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

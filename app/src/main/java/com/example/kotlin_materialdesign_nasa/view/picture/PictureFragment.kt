@@ -77,7 +77,6 @@ class PictureFragment : Fragment() {
         viewModel.sendRequest()
         wikipediaClick()
         behaviour()
-
         switching()
 
 

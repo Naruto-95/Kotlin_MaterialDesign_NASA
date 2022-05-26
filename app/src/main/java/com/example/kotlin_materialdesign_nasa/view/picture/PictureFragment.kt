@@ -38,11 +38,15 @@ class PictureFragment : Fragment() {
         when (item.itemId) {
             R.id.app_bar_fav -> {
                 binding.bottomAppBar
-                Toast.makeText(context, "1", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "избранное", Toast.LENGTH_LONG).show()
             }
 
             R.id.app_bar_search -> {
-                Toast.makeText(context, "2", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "настройки", Toast.LENGTH_LONG).show()
+            }
+            android.R.id.home->{
+                NavigationFragment.newInstance().show(requireActivity().supportFragmentManager,"")
+
             }
         }
 
@@ -92,7 +96,7 @@ class PictureFragment : Fragment() {
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                TODO("Not yet implemented")
+
             }
 
         })

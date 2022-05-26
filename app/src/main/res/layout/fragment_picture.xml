@@ -71,4 +71,23 @@
         android:id="@+id/btnSheet"
         layout="@layout/bottom_sheet_layout" />
 
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#8D0CDC"
+        app:fabAlignmentMode="center"
+        app:navigationIcon="@drawable/ic_baseline_menu_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8D0CDC"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:srcCompat="@drawable/plus_fab"
+        app:tint="#FFFFFF" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

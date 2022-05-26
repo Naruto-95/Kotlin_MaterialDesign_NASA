@@ -1,6 +1,5 @@
 package com.example.kotlin_materialdesign_nasa.view.picture
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -18,7 +17,6 @@ import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.snackbar.Snackbar
 
 class PictureFragment : Fragment() {
     private var isMenu = true
@@ -34,7 +32,6 @@ class PictureFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_bottom_bar, menu)
-        inflater.inflate(R.menu.menu_plug, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -47,11 +44,6 @@ class PictureFragment : Fragment() {
             R.id.app_bar_search -> {
                 Toast.makeText(context, "настройки", Toast.LENGTH_LONG).show()
             }
-            R.id.s -> {
-                Toast.makeText(context, "", Toast.LENGTH_LONG).show()
-            }
-
-
             android.R.id.home -> {
                 NavigationFragment.newInstance().show(requireActivity().supportFragmentManager, "")
 
@@ -102,6 +94,7 @@ class PictureFragment : Fragment() {
                         R.drawable.ic_back_fab
                     )
                 )
+                binding.bottomAppBar.replaceMenu(R.menu.menu_plug)
 
 
             } else {
@@ -116,6 +109,7 @@ class PictureFragment : Fragment() {
                         R.drawable.plus_fab
                     )
                 )
+                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
             isMenu = !isMenu
         }

@@ -1,10 +1,12 @@
 package com.example.kotlin_materialdesign_nasa.view.picture
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,11 +16,12 @@ import com.example.kotlin_materialdesign_nasa.databinding.FragmentPictureBinding
 import com.example.kotlin_materialdesign_nasa.view.MainActivity
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 
 class PictureFragment : Fragment() {
-
+    private var isMenu = true
     private var _binding: FragmentPictureBinding? = null
     private val binding: FragmentPictureBinding
         get() {
@@ -31,21 +34,26 @@ class PictureFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_bottom_bar, menu)
+        inflater.inflate(R.menu.menu_plug, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> {
-                binding.bottomAppBar
                 Toast.makeText(context, "избранное", Toast.LENGTH_LONG).show()
             }
 
             R.id.app_bar_search -> {
                 Toast.makeText(context, "настройки", Toast.LENGTH_LONG).show()
             }
-            android.R.id.home->{
-                NavigationFragment.newInstance().show(requireActivity().supportFragmentManager,"")
+            R.id.s -> {
+                Toast.makeText(context, "", Toast.LENGTH_LONG).show()
+            }
+
+
+            android.R.id.home -> {
+                NavigationFragment.newInstance().show(requireActivity().supportFragmentManager, "")
 
             }
         }
@@ -77,8 +85,44 @@ class PictureFragment : Fragment() {
         viewModel.sendRequest()
         wikipediaClick()
         behaviour()
+
+        switching()
+
+
     }
-//уловить состояние
+
+    private fun switching() {
+        binding.fab.setOnClickListener {
+            if (isMenu) {
+                binding.bottomAppBar.navigationIcon = null
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_back_fab
+                    )
+                )
+
+
+            } else {
+                binding.bottomAppBar.navigationIcon = (ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.ic_baseline_menu_24
+                ))
+                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.plus_fab
+                    )
+                )
+            }
+            isMenu = !isMenu
+        }
+
+    }
+
+    //уловить состояние
     private fun behaviour() {
         val bottomsheet = BottomSheetBehavior.from(binding.btnSheet.bottomSheetContainer)
         bottomsheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED

@@ -26,6 +26,10 @@ class NavigationFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        clickDialog()
+    }
+
+    private fun clickDialog() {
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_one -> {

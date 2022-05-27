@@ -13,6 +13,8 @@ import coil.load
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPictureBinding
 import com.example.kotlin_materialdesign_nasa.view.MainActivity
+import com.example.kotlin_materialdesign_nasa.view.picture.NavigationFragment.Companion.newInstance
+import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment.Companion.newInstance
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -43,6 +45,10 @@ class PictureFragment : Fragment() {
 
             R.id.app_bar_search -> {
                 Toast.makeText(context, "настройки", Toast.LENGTH_LONG).show()
+            }
+            R.id.s -> {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container,ChipsFragment.newInstance()).addToBackStack("").commit()
             }
             android.R.id.home -> {
                 NavigationFragment.newInstance().show(requireActivity().supportFragmentManager, "")
@@ -122,12 +128,25 @@ class PictureFragment : Fragment() {
         bottomsheet.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
-                    BottomSheetBehavior.STATE_DRAGGING -> {}
-                    BottomSheetBehavior.STATE_COLLAPSED -> {}
-                    BottomSheetBehavior.STATE_EXPANDED -> {}
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
-                    BottomSheetBehavior.STATE_HIDDEN -> {}
-                    BottomSheetBehavior.STATE_SETTLING -> {}
+                    BottomSheetBehavior.STATE_DRAGGING -> {
+                        Toast.makeText(context, "STATE_DRAGGING", Toast.LENGTH_SHORT).show()
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        Toast.makeText(context, "STATE_COLLAPSED", Toast.LENGTH_SHORT).show()
+                    }
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        Toast.makeText(context, "STATE_EXPANDED", Toast.LENGTH_SHORT).show()
+                    }
+                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {
+                        Toast.makeText(context, "STATE_HALF_EXPANDED", Toast.LENGTH_SHORT).show()
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        Toast.makeText(context, "STATE_HIDDEN", Toast.LENGTH_SHORT).show()
+                    }
+                    BottomSheetBehavior.STATE_SETTLING -> {
+                        Toast.makeText(context, "STATE_SETTLING", Toast.LENGTH_SHORT).show()
+
+                    }
                 }
 
             }

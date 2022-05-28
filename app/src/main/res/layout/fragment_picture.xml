@@ -52,6 +52,26 @@
 
 
 
+        <FrameLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ProgressBar
+                style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:minWidth="200dp"
+                android:minHeight="50dp" />
+
+
+        </FrameLayout>
 
 
 
@@ -68,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="#8D0CDC"
+        app:backgroundTint="@color/purple_900"
         app:fabAlignmentMode="center"
         app:navigationIcon="@drawable/ic_baseline_menu_24" />
 
@@ -76,30 +96,10 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#8D0CDC"
+        android:backgroundTint="@color/purple_900"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/plus_fab"
         app:tint="#FFFFFF"
         tools:ignore="SpeakableTextPresentCheck" />
-    <FrameLayout
-        android:id="@+id/loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@color/white"
-        android:visibility="gone"
-        tools:visibility="visible">
-
-        <ProgressBar
-            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:minWidth="200dp"
-            android:minHeight="50dp" />
-
-
-    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

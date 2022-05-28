@@ -3,6 +3,7 @@ package com.example.kotlin_materialdesign_nasa.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -13,8 +14,6 @@ import coil.load
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPictureBinding
 import com.example.kotlin_materialdesign_nasa.view.MainActivity
-import com.example.kotlin_materialdesign_nasa.view.picture.NavigationFragment.Companion.newInstance
-import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment.Companion.newInstance
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -48,7 +47,8 @@ class PictureFragment : Fragment() {
             }
             R.id.s -> {
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container,ChipsFragment.newInstance()).addToBackStack("").commit()
+                    .replace(R.id.container, ChipsFragment.newInstance()).addToBackStack("")
+                    .commit()
             }
             android.R.id.home -> {
                 NavigationFragment.newInstance().show(requireActivity().supportFragmentManager, "")
@@ -129,22 +129,22 @@ class PictureFragment : Fragment() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
                     BottomSheetBehavior.STATE_DRAGGING -> {
-                        Toast.makeText(context, "STATE_DRAGGING", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_DRAGGING")
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
-                        Toast.makeText(context, "STATE_COLLAPSED", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_COLLAPSED")
                     }
                     BottomSheetBehavior.STATE_EXPANDED -> {
-                        Toast.makeText(context, "STATE_EXPANDED", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_EXPANDED")
                     }
                     BottomSheetBehavior.STATE_HALF_EXPANDED -> {
-                        Toast.makeText(context, "STATE_HALF_EXPANDED", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_HALF_EXPANDED")
                     }
                     BottomSheetBehavior.STATE_HIDDEN -> {
-                        Toast.makeText(context, "STATE_HIDDEN", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_HIDDEN")
                     }
                     BottomSheetBehavior.STATE_SETTLING -> {
-                        Toast.makeText(context, "STATE_SETTLING", Toast.LENGTH_SHORT).show()
+                        Log.d("111", "STATE_SETTLING")
 
                     }
                 }
@@ -188,7 +188,7 @@ class PictureFragment : Fragment() {
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
                     binding.btnSheet.explanation.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
-                    //binding.btnSheet.imageViewUrl.load(pictureOfTheDataAppState.pictureOfTheResponseData.url)
+
 
                 }
 

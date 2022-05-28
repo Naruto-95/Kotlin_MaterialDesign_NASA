@@ -1,7 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.viewmodel
 
 import com.example.kotlin_materialdesign_nasa.repository.PictureOfTheResponseData
-import java.lang.Error
 
 sealed class PictureOfTheDataAppState {
     data class Error(val error: Throwable): PictureOfTheDataAppState()

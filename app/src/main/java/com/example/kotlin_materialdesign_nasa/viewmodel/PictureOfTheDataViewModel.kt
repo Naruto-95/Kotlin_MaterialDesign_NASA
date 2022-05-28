@@ -13,12 +13,13 @@ import java.net.SocketTimeoutException
 class PictureOfTheDataViewModel(
     private val LiveData: MutableLiveData<PictureOfTheDataAppState> = MutableLiveData(),
     private val pictureOfTheDataRetrofitImpl: PictureOfTheRetrofitImpl = PictureOfTheRetrofitImpl()
+
+
 ) :
     ViewModel() {
     fun getLiveData() = LiveData
 
     fun sendRequest() {
-       // LiveData.postValue(PictureOfTheDataAppState.Loading(sfsdfs))
        LiveData.postValue(PictureOfTheDataAppState.Loading)
         pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY).enqueue(callbak)
 
@@ -42,6 +43,5 @@ class PictureOfTheDataViewModel(
         }
 
     }
-
 
 }

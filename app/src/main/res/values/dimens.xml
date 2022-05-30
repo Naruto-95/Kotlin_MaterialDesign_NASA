@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="View_bootom_sheet">25dp</dimen>
+    <dimen name="height_bootom_sheet">1dp</dimen>
+    <dimen name="marginTop_bootom_sheet">5dp</dimen>
+    <dimen name="margin_TextView_bootom_sheet">5dp</dimen>
+    <dimen name="padding_start_bootom_sheet">10dp</dimen>
+    <dimen name="Floating_Action_Button_Back_chip">20dp</dimen>
+    <dimen name="margin_navigation">8dp</dimen>
+    <dimen name="padding_picture">10dp</dimen>
+    <dimen name="TextInputLayout_width">0dp</dimen>
+    <dimen name="progressBar_minW">200dp</dimen>
+    <dimen name="progressBar_minH">50dp</dimen>
+
+</resources>

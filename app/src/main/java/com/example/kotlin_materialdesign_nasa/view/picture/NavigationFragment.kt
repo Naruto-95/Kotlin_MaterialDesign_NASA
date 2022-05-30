@@ -29,6 +29,7 @@ class NavigationFragment : BottomSheetDialogFragment() {
         clickDialog()
     }
 
+
     private fun clickDialog() {
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -58,6 +59,7 @@ class NavigationFragment : BottomSheetDialogFragment() {
         _binding = FragmentNavigationBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     companion object {
 

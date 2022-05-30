@@ -124,7 +124,7 @@ class PictureFragment : Fragment() {
     //уловить состояние
     private fun behaviour() {
         val bottomsheet = BottomSheetBehavior.from(binding.btnSheet.bottomSheetContainer)
-        bottomsheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        bottomsheet.state = BottomSheetBehavior.STATE_COLLAPSED
         bottomsheet.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {

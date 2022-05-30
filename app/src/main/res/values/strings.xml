@@ -11,4 +11,7 @@
     <string name="Today">Сегодня</string>
     <string name="Yesterday">Вчера</string>
     <string name="TDBY">Позавчера</string>
+    <string name="main_theme">Главная тема</string>
+    <string name="red_theme">Красная тема</string>
+    <string name="green_theme">Зеленая тема</string>
 </resources>

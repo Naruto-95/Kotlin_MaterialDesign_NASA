@@ -16,4 +16,10 @@
     <color name="purple_700">#512DA8</color>
     <color name="purple_800">#4527A0</color>
     <color name="purple_900">#4A148C</color>
+
+
+    <color name="mPurple">#5E35B1</color>
+    <color name="mRed">#FF3402</color>
+    <color name="mYellow">#FAFA02</color>
+
 </resources>

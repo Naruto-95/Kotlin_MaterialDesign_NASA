@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/picture"
         android:layout_width="match_parent"
@@ -50,8 +49,6 @@
             app:srcCompat="@drawable/ic_no_photo_vector" />
 
 
-
-
         <FrameLayout
             android:id="@+id/loading"
             android:layout_width="match_parent"
@@ -74,8 +71,6 @@
         </FrameLayout>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -85,18 +80,18 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
+        android:backgroundTint="?mColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/purple_900"
         app:fabAlignmentMode="center"
         app:navigationIcon="@drawable/ic_baseline_menu_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
+        android:backgroundTint="?mColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_900"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/plus_fab"
         app:tint="#FFFFFF"

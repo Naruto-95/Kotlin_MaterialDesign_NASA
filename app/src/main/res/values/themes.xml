@@ -2,25 +2,39 @@
     <!-- Base application theme. -->
     <style name="Theme.Kotlin_MaterialDesign_NASA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="android:navigationBarColor">@color/purple_900</item>
-        <item name="colorPrimary">@color/purple_600</item>
+        <item name="android:navigationBarColor">?mColor</item>
+        <item name="colorPrimary">?mColor</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/purple_100</item>
-        <item name="colorOnPrimaryContainer">@color/purple_200</item>
-        <item name="colorPrimaryInverse">@color/purple_500</item>
-        <item name="colorSecondary">@color/purple_600</item>
+        <item name="colorPrimaryContainer">?mColor</item>
+        <item name="colorOnPrimaryContainer">?mColor</item>
+        <item name="colorPrimaryInverse">?mColor</item>
+        <item name="colorSecondary">?mColor</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorSecondaryContainer">@color/purple_100</item>
-        <item name="colorOnSecondaryContainer">@color/purple_900</item>
-        <item name="colorTertiary">@color/purple_600</item>
+        <item name="colorSecondaryContainer">?mColor</item>
+        <item name="colorOnSecondaryContainer">?mColor</item>
+        <item name="colorTertiary">?mColor</item>
         <item name="colorOnTertiary">@color/white</item>
-        <item name="colorTertiaryContainer">@color/purple_100</item>
-        <item name="colorOnTertiaryContainer">@color/purple_900</item>
+        <item name="colorTertiaryContainer">?mColor</item>
+        <item name="colorOnTertiaryContainer">?mColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/purple_900</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyTextInputEditText</item>
     </style>
+
+    <style name="mPurpleStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
+        <item name="mColor">@color/mPurple</item>
+
+    </style>
+    <style name="mRedStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
+        <item name="mColor">@color/mRed</item>
+
+    </style>
+    <style name="mYellowStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
+        <item name="mColor">@color/mYellow</item>
+
+    </style>
+
 
 
 </resources>

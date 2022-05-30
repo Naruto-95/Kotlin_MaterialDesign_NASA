@@ -22,12 +22,5 @@
         <item name="textInputStyle">@style/MyTextInputEditText</item>
     </style>
 
-    <style name="MyTextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">#68F604</item>
-        <item name="boxStrokeErrorColor">#FD0101</item>
 
-
-
-
-    </style>
 </resources>

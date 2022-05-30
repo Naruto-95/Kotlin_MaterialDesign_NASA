@@ -30,8 +30,8 @@
         <item name="mColor">@color/mRed</item>
 
     </style>
-    <style name="mYellowStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
-        <item name="mColor">@color/mYellow</item>
+    <style name="mGreenStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
+        <item name="mColor">@color/mGreen</item>
 
     </style>
 

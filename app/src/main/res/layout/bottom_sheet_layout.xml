@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_TextView_bootom_sheet"
+        android:fontFamily="@font/aleo_italic"
         android:paddingStart="@dimen/padding_start_bootom_sheet"
         android:paddingEnd="@dimen/padding_start_bootom_sheet"
         android:textColor="#000"

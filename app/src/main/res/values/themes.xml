@@ -20,20 +20,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyTextInputEditText</item>
+        <item name="tabStyle">@style/mTabsP</item>
+        <item name="textAppearanceBody2">@style/mTextAppearance</item>
     </style>
 
     <style name="mPurpleStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
         <item name="mColor">@color/mPurple</item>
 
     </style>
-    <style name="mRedStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
-        <item name="mColor">@color/mRed</item>
 
-    </style>
-    <style name="mGreenStyle" parent="Theme.Kotlin_MaterialDesign_NASA">
-        <item name="mColor">@color/mGreen</item>
-
-    </style>
 
 
 

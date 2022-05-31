@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Kotlin_MaterialDesign_NASA</string>
     <string name="photo_of_the_day_stub">Photo of the day</string>
-    <string name="search_wiki">Найти в Википедии</string>
-    <string name="wiki_helper_text">Поищите термин в википедии</string>
+    <string name="search_wiki">Find in Wikipedia</string>
+    <string name="wiki_helper_text">Look for the term in wikipedia</string>
     <string name="favourite">favourite</string>
     <string name="settings">settings</string>
     <string name="search">Search</string>
@@ -14,4 +14,10 @@
     <string name="main_theme">Главная тема</string>
     <string name="red_theme">Красная тема</string>
     <string name="green_theme">Зеленая тема</string>
+    <string name="yesterday">Day before yesterday</string>
+    <string name="yesterdayy">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="main_themee">main theme</string>
+    <string name="red_themee">red theme</string>
+    <string name="green_themee">green theme</string>
 </resources>

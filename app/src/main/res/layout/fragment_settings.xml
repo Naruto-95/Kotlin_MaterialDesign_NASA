@@ -26,6 +26,12 @@
     </com.google.android.material.tabs.TabLayout>
 
 
-
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/purple_900"
+        app:rippleColor="@color/mGreen"
+        android:layout_margin="8dp"/>
 
 </LinearLayout>

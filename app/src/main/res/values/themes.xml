@@ -23,6 +23,7 @@
         <item name="tabStyle">@style/mTabsP</item>
         <item name="textAppearanceBody2">@style/mTextAppearance</item>
         <item name="shapeAppearanceSmallComponent">@style/mShapeSmall</item>
+        <item name="shapeAppearanceMediumComponent">@style/mShape</item>
     </style>
 
     <style name="mPurpleStyle" parent="Theme.Kotlin_MaterialDesign_NASA">

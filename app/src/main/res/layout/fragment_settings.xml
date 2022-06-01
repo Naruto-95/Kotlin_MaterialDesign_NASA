@@ -30,8 +30,37 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:cardBackgroundColor="@color/purple_900"
+        app:cardBackgroundColor="@color/color_gray"
         app:rippleColor="@color/mGreen"
         android:layout_margin="8dp"/>
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/btnOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_themee"
+            android:textColor="?mColor" />
+
+        <RadioButton
+            android:id="@+id/btnTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/red_themee"
+            android:textColor="@color/mRed" />
+
+        <RadioButton
+            android:id="@+id/btnThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/green_themee"
+            android:textColor="@color/mGreen" />
+    </RadioGroup>
+
+
+
 
 </LinearLayout>

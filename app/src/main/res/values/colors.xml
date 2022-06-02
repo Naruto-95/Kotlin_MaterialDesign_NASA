@@ -6,7 +6,7 @@
     <color name="teal_200">#0C0C0C</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#00BFA5</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FCFCFC</color>
     <color name="color_gray">#7A7777</color>
 
     <color name="purple_100">#E1BEE7</color>
@@ -21,5 +21,6 @@
     <color name="mPurple">#5E35B1</color>
     <color name="mRed">#FF3402</color>
     <color name="mGreen">#63FD01</color>
+
 
 </resources>

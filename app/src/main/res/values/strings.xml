@@ -20,4 +20,5 @@
     <string name="main_themee">main theme</string>
     <string name="red_themee">red theme</string>
     <string name="green_themee">green theme</string>
+    <string name="dark_theme">Dark Theme</string>
 </resources>

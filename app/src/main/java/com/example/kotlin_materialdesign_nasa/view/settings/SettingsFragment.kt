@@ -76,6 +76,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
             1 -> binding.radioGroup.check(R.id.btnOne)
             2 -> binding.radioGroup.check(R.id.btnTwo)
             3 -> binding.radioGroup.check(R.id.btnThree)
+
         }
     }
 
@@ -93,6 +94,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 parentActivity.setStyleTheme(greenTheme)
                 parentActivity.recreate()
             }
+
         }
 
     }

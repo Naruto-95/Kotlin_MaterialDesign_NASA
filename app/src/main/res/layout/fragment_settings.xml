@@ -29,10 +29,12 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:cardBackgroundColor="@color/color_gray"
+        android:layout_height="150dp"
         app:rippleColor="@color/mGreen"
-        android:layout_margin="8dp"/>
+        android:layout_margin="8dp">
+
+
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
@@ -43,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_themee"
-            android:textColor="?mColor" />
+            android:textColor="@color/mPurple" />
 
         <RadioButton
             android:id="@+id/btnTwo"
@@ -58,7 +60,11 @@
             android:layout_height="wrap_content"
             android:text="@string/green_themee"
             android:textColor="@color/mGreen" />
+
     </RadioGroup>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 

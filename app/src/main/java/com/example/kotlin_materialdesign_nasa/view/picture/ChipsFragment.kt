@@ -1,7 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.view.picture
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentChipsBinding
-import com.example.kotlin_materialdesign_nasa.r.rquest.viewmodelrequest.PictureDataAppState
-import com.example.kotlin_materialdesign_nasa.r.rquest.viewmodelrequest.PictureViewModel
-import com.google.android.material.chip.Chip
+import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
+import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ChipsFragment : Fragment() {
 
@@ -22,8 +23,8 @@ class ChipsFragment : Fragment() {
             return _binding!!
         }
 
-    private val viewModel: PictureViewModel by lazy {
-        ViewModelProvider(this).get(PictureViewModel::class.java)
+    private val viewModel: PictureOfTheDataViewModel by lazy {
+        ViewModelProvider(this).get(PictureOfTheDataViewModel::class.java)
     }
 
     override fun onDestroy() {
@@ -45,9 +46,14 @@ class ChipsFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
             renderData(it)
         })
-        viewModel.sendRequestToday()
-        viewModel.sendRequestYesterday()
-        viewModel.sendRequestTDBY()
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.yest ->{viewModel.sendServerRequest(takeDate(-1))}
+                R.id.befYest ->{viewModel.sendServerRequest(takeDate(-1))}
+                R.id.tod->{viewModel.sendRequest()}
+
+            }
+        }
 
         btnBack()
 
@@ -55,50 +61,28 @@ class ChipsFragment : Fragment() {
     }
 
 
-    fun chips() {
-
+    private fun takeDate(count: Int): String {
+        val currentDate = Calendar.getInstance()
+        currentDate.add(Calendar.DAY_OF_MONTH, count)
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        format.timeZone = TimeZone.getTimeZone("EST")
+        return format.format(currentDate.time)
     }
 
 
-    fun renderData(pictureDataAppState: PictureDataAppState) {
-        when (pictureDataAppState) {
-            is PictureDataAppState.Success -> {
-                binding.chipGroup.setOnCheckedChangeListener { group, position ->
-                    when (position) {
-                        1 -> {
-                            viewModel.sendRequestToday()
-                            binding.imageViewT.load(pictureDataAppState.pictureOfTheResponseData2.url) {
-
-                            }
-                        }
-                        2 -> {
-                            viewModel.sendRequestYesterday()
-                            binding.imageViewT.load(pictureDataAppState.pictureOfTheResponseData2.hdurl)
-                        }
-                        3 -> {
-                            viewModel.sendRequestTDBY()
-                            binding.imageViewT.load(pictureDataAppState.pictureOfTheResponseData2.url)
-
-                        }
-                    }
-                    group.findViewById<Chip>(position)?.let {
-                        Log.d("111", "${it.text.toString()}")
-
-                    }
-                }
-
+    private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
+        when (pictureOfTheDataAppState) {
+            is PictureOfTheDataAppState.Success -> {
+                binding.imageViewT.load(pictureOfTheDataAppState.pictureOfTheResponseData.hdurl)
+            }
+            is PictureOfTheDataAppState.Loading -> {
+                binding.imageViewT.load(R.drawable.ic_no_photo_vector)
 
             }
-
-            is PictureDataAppState.Loading -> {
-                //  binding.loading.visibility = View.VISIBLE
-
-            }
-            is PictureDataAppState.Error -> {
-                // binding.loading.visibility = View.GONE
+            is PictureOfTheDataAppState.Error -> {
+                pictureOfTheDataAppState.error.message
 
             }
-
         }
 
     }

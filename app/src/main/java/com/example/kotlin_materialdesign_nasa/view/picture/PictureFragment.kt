@@ -185,25 +185,19 @@ class PictureFragment : Fragment() {
             is PictureOfTheDataAppState.Success -> {
                 binding.loading.visibility = View.GONE
                 binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.hdurl) {
-                    crossfade(true)
-                    placeholder(R.drawable.ic_cloud)
-                    //transformations(CircleCropTransformation())
                     binding.btnSheet.title.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
                     binding.btnSheet.explanation.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
-
-
                 }
-
-
             }
             is PictureOfTheDataAppState.Loading -> {
                 binding.loading.visibility = View.VISIBLE
-
+                binding.imageView.load(R.drawable.ic_no_photo_vector)
             }
             is PictureOfTheDataAppState.Error -> {
                 binding.loading.visibility = View.GONE
+                pictureOfTheDataAppState.error.message
 
             }
         }

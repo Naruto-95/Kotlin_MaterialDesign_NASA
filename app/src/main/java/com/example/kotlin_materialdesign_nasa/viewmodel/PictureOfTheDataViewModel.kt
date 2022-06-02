@@ -19,17 +19,31 @@ class PictureOfTheDataViewModel(
     ViewModel() {
     fun getLiveData() = LiveData
 
+
+    fun sendServerRequest(data: String) {
+        LiveData.postValue(PictureOfTheDataAppState.Loading)
+        val apiKey: String = BuildConfig.NASA_API_KEY
+        if (apiKey.isBlank()) {
+            LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))
+        } else {
+            pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(apiKey, data)
+                .enqueue(callbak)
+        }
+    }
+
     fun sendRequest() {
-       LiveData.postValue(PictureOfTheDataAppState.Loading)
-        pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY).enqueue(callbak)
+        LiveData.postValue(PictureOfTheDataAppState.Loading)
+        pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+            .enqueue(callbak)
 
     }
-    val callbak = object : Callback<PictureOfTheResponseData>{
+
+    val callbak = object : Callback<PictureOfTheResponseData> {
         override fun onResponse(
             call: Call<PictureOfTheResponseData>,
             response: Response<PictureOfTheResponseData>
         ) {
-            if (response.isSuccessful) {
+            if (response.isSuccessful && response.body() != null) {
                 response.body()?.let {
                     LiveData.postValue(PictureOfTheDataAppState.Success(it))
                 }
@@ -39,7 +53,7 @@ class PictureOfTheDataViewModel(
         }
 
         override fun onFailure(call: Call<PictureOfTheResponseData>, t: Throwable) {
-           PictureOfTheDataAppState.Error(t)
+            PictureOfTheDataAppState.Error(t)
         }
 
     }

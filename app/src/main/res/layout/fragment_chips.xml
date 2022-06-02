@@ -15,12 +15,14 @@
 
         <com.google.android.material.chip.Chip
             style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:id="@+id/tod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aleo_italic"
             android:text="@string/today" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/yest"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,6 +30,7 @@
             android:text="@string/yesterdayy" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/befYest"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

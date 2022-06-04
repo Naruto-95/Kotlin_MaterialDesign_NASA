@@ -53,6 +53,9 @@ class NavigationFragment : BottomSheetDialogFragment() {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.container, MyFragment.newInstance()).addToBackStack("")
                         .commit()
+                    if (dialog?.isShowing == true) {
+                        dialog!!.dismiss()
+                    }
                 }
             }
             true

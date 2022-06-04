@@ -84,13 +84,35 @@ class PictureFragment : Fragment() {
             renderData(it)
         })
         main()
-        viewModel.sendRequest()
+        viewModel.sendRequest(BEFORE_YESTERDAY)
         wikipediaClick()
         behaviour()
         switching()
+        OnClikChip()
 
 
     }
+
+    private fun OnClikChip() {
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.befYest -> {
+                    binding.chipGroup.check(R.id.befYest)
+                    viewModel.sendRequest((BEFORE_YESTERDAY))
+                }
+                R.id.yest -> {
+                    binding.chipGroup.check(R.id.yest)
+                    viewModel.sendRequest((YESTERDAY))
+                }
+                R.id.tod -> {
+                    binding.chipGroup.check(R.id.tod)
+                    viewModel.sendRequest((TODAY))
+                }
+
+            }
+        }
+    }
+
 
     private fun switching() {
         binding.fab.setOnClickListener {
@@ -209,6 +231,8 @@ class PictureFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() = PictureFragment()
-
+        private const val TODAY = 0
+        private const val YESTERDAY = 1
+        private const val BEFORE_YESTERDAY = 2
     }
 }

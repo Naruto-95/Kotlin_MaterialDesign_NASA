@@ -46,14 +46,14 @@ class ChipsFragment : Fragment() {
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
             renderData(it)
         })
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
+      /*  binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId){
-                R.id.yest ->{viewModel.sendServerRequest(takeDate(-1))}
-                R.id.befYest ->{viewModel.sendServerRequest(takeDate(-1))}
-                R.id.tod->{viewModel.sendRequest()}
+                R.id.yest ->{viewModel.sendServerRequest(takeDate(2))}
+                R.id.befYest ->{viewModel.sendServerRequest(takeDate(1))}
+                R.id.tod->{viewModel.sendServerRequest()}
 
             }
-        }
+        }*/
 
         btnBack()
 

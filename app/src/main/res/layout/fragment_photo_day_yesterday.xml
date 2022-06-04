@@ -3,12 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-
-    <androidx.appcompat.widget.AppCompatImageView
+    <FrameLayout
+        android:id="@+id/loading"
         android:layout_width="match_parent"
-        android:layout_height="499dp"
-        app:srcCompat="@drawable/ic_cloud" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ProgressBar
+            style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:minWidth="@dimen/progressBar_minW"
+            android:minHeight="@dimen/progressBar_minH" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/chipGroup">
+        <com.example.kotlin_materialdesign_nasa.utils.EquilateralImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="438dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/photo_of_the_day_stub"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.559"
+            app:srcCompat="@drawable/ic_no_photo_vector" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_TextView_bootom_sheet"
+        android:fontFamily="@font/aleo_italic"
+        android:paddingStart="@dimen/padding_start_bootom_sheet"
+        android:paddingEnd="@dimen/padding_start_bootom_sheet"
+        android:textColor="@color/ic_launcher_background"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"
+        tools:text="Two Clusters and a Comet" />
+
+    <TextView
+        android:id="@+id/explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_start_bootom_sheet"
+        android:paddingEnd="@dimen/padding_start_bootom_sheet"
+        android:textColor="@color/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="This lovely starfield spans some four full moons." />
+
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:singleSelection="true"
+        app:layout_constraintEnd_toEndOf="@id/frame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayout"
+        tools:ignore="MissingConstraints">
+
+    <com.google.android.material.chip.Chip
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:id="@+id/tod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aleo_italic"
+        android:text="@string/today" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/yest"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aleo_italic"
+        android:text="@string/yesterdayy" />
+    </com.google.android.material.chip.ChipGroup>
 
     <LinearLayout
         android:layout_width="match_parent"

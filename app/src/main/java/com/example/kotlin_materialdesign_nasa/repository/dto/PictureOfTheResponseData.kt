@@ -1,4 +1,4 @@
-package com.example.kotlin_materialdesign_nasa.repository
+package com.example.kotlin_materialdesign_nasa.repository.dto
 
 data class PictureOfTheResponseData(
     val copyright: String,

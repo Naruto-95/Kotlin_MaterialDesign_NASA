@@ -1,14 +1,19 @@
 package com.example.kotlin_materialdesign_nasa.viewmodel
 
+import android.os.Build
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlin_materialdesign_nasa.BuildConfig
-import com.example.kotlin_materialdesign_nasa.repository.PictureOfTheResponseData
 import com.example.kotlin_materialdesign_nasa.repository.PictureOfTheRetrofitImpl
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.SocketTimeoutException
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class PictureOfTheDataViewModel(
     private val LiveData: MutableLiveData<PictureOfTheDataAppState> = MutableLiveData(),
@@ -20,22 +25,34 @@ class PictureOfTheDataViewModel(
     fun getLiveData() = LiveData
 
 
-    fun sendServerRequest(data: String) {
+
+
+    fun sendRequest(day:Int) {
+        val date = getDate(day)
         LiveData.postValue(PictureOfTheDataAppState.Loading)
-        val apiKey: String = BuildConfig.NASA_API_KEY
+        val apiKey = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
-            LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))
+            PictureOfTheDataAppState.Error(Throwable(API_ERROR))
         } else {
-            pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(apiKey, data)
-                .enqueue(callbak)
+            pictureOfTheDataRetrofitImpl.getPictureOfTheDay(
+                BuildConfig.NASA_API_KEY,
+                date, callbak
+            )
+
         }
     }
 
-    fun sendRequest() {
-        LiveData.postValue(PictureOfTheDataAppState.Loading)
-        pictureOfTheDataRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
-            .enqueue(callbak)
-
+    private fun getDate(day: Int): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val yesterday = LocalDateTime.now().minusDays(day.toLong())
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            return yesterday.format(formatter)
+        } else {
+            val cal: Calendar = Calendar.getInstance()
+            val s = SimpleDateFormat("yyyy-MM-dd")
+            cal.add(Calendar.DAY_OF_YEAR, (-day))
+            return s.format(cal.time)
+        }
     }
 
     val callbak = object : Callback<PictureOfTheResponseData> {
@@ -44,9 +61,8 @@ class PictureOfTheDataViewModel(
             response: Response<PictureOfTheResponseData>
         ) {
             if (response.isSuccessful && response.body() != null) {
-                response.body()?.let {
-                    LiveData.postValue(PictureOfTheDataAppState.Success(it))
-                }
+                LiveData.postValue(PictureOfTheDataAppState.Success(response.body()!!))
+
             } else {
                 LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))
             }
@@ -57,5 +73,9 @@ class PictureOfTheDataViewModel(
         }
 
     }
+        companion object {
+            private const val API_ERROR = "You need API Key"
+            private const val UNKNOWN_ERROR = "Unidentified error"
+        }
 
 }

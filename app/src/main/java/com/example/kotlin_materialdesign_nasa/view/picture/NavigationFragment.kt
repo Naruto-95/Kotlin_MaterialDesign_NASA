@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentNavigationBinding
+import com.example.kotlin_materialdesign_nasa.view.navigation.MyFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -46,6 +47,12 @@ class NavigationFragment : BottomSheetDialogFragment() {
                     if (dialog?.isShowing == true) {
                         dialog!!.dismiss()
                     }
+                }
+                R.id.navigation_photo -> {
+                    Toast.makeText(context, "3", Toast.LENGTH_LONG).show()
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, MyFragment.newInstance()).addToBackStack("")
+                        .commit()
                 }
             }
             true

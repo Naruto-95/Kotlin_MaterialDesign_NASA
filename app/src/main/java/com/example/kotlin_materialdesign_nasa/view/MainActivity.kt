@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getStyleTheme(): Int {
         val sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
-        return sharedPreferences.getInt(KEY_THEME, -1)
+        return sharedPreferences.getInt(KEY_THEME, mainTheme)
     }
 
     private fun getChoosingStyle(styleTheme: Int): Int {
@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity() {
             mainTheme -> R.style.mPurpleStyle
             redTheme -> R.style.mRedStyle
             greenTheme -> R.style.mGreenStyle
-            else -> 0
+            else -> mainTheme
+
+
         }
 
     }

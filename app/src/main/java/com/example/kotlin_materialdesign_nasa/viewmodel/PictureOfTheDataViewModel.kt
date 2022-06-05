@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlin_materialdesign_nasa.BuildConfig
 import com.example.kotlin_materialdesign_nasa.repository.PictureOfTheRetrofitImpl
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureEpicEarthResponseData
 import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,13 +36,46 @@ class PictureOfTheDataViewModel(
             PictureOfTheDataAppState.Error(Throwable(API_ERROR))
         } else {
             pictureOfTheDataRetrofitImpl.getPictureOfTheDay(
-                BuildConfig.NASA_API_KEY,
+                apiKey,
                 date, callbak
             )
 
         }
     }
 
+    fun sendRequestEpicEarth() {
+        LiveData.postValue(PictureOfTheDataAppState.Loading)
+        val apiKey = BuildConfig.NASA_API_KEY
+        if (apiKey.isBlank()) {
+            PictureOfTheDataAppState.Error(Throwable(API_ERROR))
+        } else {
+            pictureOfTheDataRetrofitImpl.getEarth(
+                apiKey,
+                earthCallbak
+            )
+
+        }
+    }
+    val earthCallbak = object : Callback<PictureEpicEarthResponseData> {
+        override fun onResponse(
+            call: Call<PictureEpicEarthResponseData>,
+            response: Response<PictureEpicEarthResponseData>
+        ) {
+            if (response.isSuccessful && response.body() != null) {
+                LiveData.postValue(PictureOfTheDataAppState.SuccessEarth(response.body()!!))
+
+            } else {
+                    LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))}
+
+        }
+
+        override fun onFailure(call:  Call<PictureEpicEarthResponseData>, t: Throwable) {
+            PictureOfTheDataAppState.Error(t)
+        }
+
+
+
+    }
     private fun getDate(day: Int): String {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val yesterday = LocalDateTime.now().minusDays(day.toLong())

@@ -6,6 +6,7 @@ const val API_DATA = "date"
 const val NASA_BASE_URL = "https://api.nasa.gov/"
 const val KEY_SP = "key_sp"
 const val KEY_THEME = "key_theme"
+const val KEY_EPIC = "EPIC/api/natural"
 const val mainTheme = 1
 const val redTheme = 2
 const val greenTheme = 3

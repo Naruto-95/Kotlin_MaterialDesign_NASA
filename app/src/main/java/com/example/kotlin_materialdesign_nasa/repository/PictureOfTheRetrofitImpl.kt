@@ -1,5 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.repository
 
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureEpicEarthResponseData
 import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
 import com.example.kotlin_materialdesign_nasa.utils.NASA_BASE_URL
 import com.google.gson.GsonBuilder
@@ -23,5 +24,8 @@ class PictureOfTheRetrofitImpl {
     fun getPictureOfTheDay(apiKey: String, date: String, podCallback: Callback<PictureOfTheResponseData>) {
         getRetrofit().getPictureOfTheDay(apiKey, date).enqueue(podCallback)
     }
-
+    fun getEarth(apiKey: String,earthCallback: Callback<PictureEpicEarthResponseData>) {
+        getRetrofit().getEarth(apiKey).enqueue(earthCallback)
+    }
 }
+

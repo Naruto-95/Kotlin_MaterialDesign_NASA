@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentMyBinding
-import com.example.kotlin_materialdesign_nasa.view.navigation.viewpager.ViewPagerAdapter
 
 
-class MyFragment : Fragment() {
+class NavigationFragment : Fragment() {
 
     private var _binding: FragmentMyBinding? = null
     private val binding: FragmentMyBinding
@@ -26,14 +25,32 @@ class MyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-             binding.viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
-        binding.tabLayout.setupWithViewPager( binding.viewPager)
+
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.today -> {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerr, PhotoDayYesterdayFragment.newInstance()).commit()
+
+                }
+                R.id.earth -> {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerr, PhotoEarthAndMoonFragment.newInstance()).commit()
+
+                }
+                R.id.mars -> {
+                    requireActivity().supportFragmentManager.beginTransaction()
+                        .replace(R.id.containerr, PhotoMarsAndWeatherFragment.newInstance()).commit()
+
+                }
 
 
 
+            }
+            true
+
+        }
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +64,7 @@ class MyFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = MyFragment()
+        fun newInstance() = NavigationFragment()
     }
 }
+

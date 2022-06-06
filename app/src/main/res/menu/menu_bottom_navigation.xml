@@ -12,7 +12,7 @@
 
         <item
             android:id="@+id/navigation_photo"
-            android:icon="@drawable/ic_planet"
+            android:icon="@drawable/ic_earth"
             android:title="Photo planet" />
 
 

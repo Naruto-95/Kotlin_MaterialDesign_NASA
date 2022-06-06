@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/today"
+        android:icon="@drawable/ic_day"
+        android:title="@string/photoday" />
+    <item
+        android:id="@+id/earth"
+        android:icon="@drawable/ic_planet"
+        android:title="@string/photoearth" />
+    <item
+        android:id="@+id/mars"
+        android:icon="@drawable/ic_mars"
+        android:title="@string/photomars" />
+</menu>

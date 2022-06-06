@@ -21,4 +21,7 @@
     <string name="red_themee">red theme</string>
     <string name="green_themee">green theme</string>
     <string name="dark_theme">Dark Theme</string>
+    <string name="photoday">PhotoDay</string>
+    <string name="photoearth">PhotoEarth</string>
+    <string name="photomars">PhotoMars</string>
 </resources>

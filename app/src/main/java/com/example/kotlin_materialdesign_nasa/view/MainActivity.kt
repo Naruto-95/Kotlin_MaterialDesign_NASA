@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.utils.*
+import com.example.kotlin_materialdesign_nasa.view.navigation.NavigationFragment
 import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
 
 
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

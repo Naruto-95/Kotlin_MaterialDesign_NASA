@@ -54,11 +54,8 @@ class PhotoMarsAndWeatherFragment : Fragment() {
     private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.SuccessMars -> {
-                if(pictureOfTheDataAppState.pictureMarsResponse.photos.isEmpty()){
-                }else{
-                    val url = pictureOfTheDataAppState.pictureMarsResponse.photos.first().imgSrc
-                    binding.imageViewM.load(url)
-                }
+                binding.imageViewM.load(pictureOfTheDataAppState.pictureMarsResponse.photos)
+
 
 
             }

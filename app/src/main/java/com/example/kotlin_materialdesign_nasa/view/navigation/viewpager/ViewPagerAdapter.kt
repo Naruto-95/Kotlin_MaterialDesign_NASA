@@ -38,7 +38,7 @@ class ViewPagerAdapter(private val fm: FragmentManager) : FragmentStatePagerAdap
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             PhotoDay -> "PhotoDay"
-            PhotoEarth -> "PhotoEarth,Moon"
+            PhotoEarth -> "PhotoEarth"
             else -> "WeatherMars"
         }
     }

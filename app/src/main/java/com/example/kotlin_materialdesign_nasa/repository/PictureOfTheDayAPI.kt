@@ -20,7 +20,7 @@ interface PictureOfTheDayAPI {
 
     @GET("mars-photos/api/v1/rovers/curiosity/photos")
     fun getMarsPhoto(
-        @Query("earth_date = 2015-6-3") earth: String,
+        @Query("earth_date") earth: String,
         @Query(API_KEY) apiKey: String
     ): Call<PictureMarsResponse>
 

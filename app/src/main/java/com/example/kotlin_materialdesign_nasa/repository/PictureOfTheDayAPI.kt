@@ -1,7 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.repository
 
-import com.example.kotlin_materialdesign_nasa.repository.dto.PictureEpicEarthResponseData
-import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
+import com.example.kotlin_materialdesign_nasa.repository.dto.*
 import com.example.kotlin_materialdesign_nasa.utils.*
 import retrofit2.Call
 import retrofit2.http.GET
@@ -17,6 +16,12 @@ interface PictureOfTheDayAPI {
 
 
     @GET(KEY_EPIC)
-    fun getEarth(@Query(API_KEY) apiKey: String): Call<PictureEpicEarthResponseData>
+    fun getEarth(@Query(API_KEY) apiKey: String): Call<List<PictureEpicEarthResponseData>>
+
+    @GET("mars-photos/api/v1/rovers/curiosity/photos")
+    fun getMarsPhoto(
+        @Query("earth_date = 2015-6-3") earth: String,
+        @Query(API_KEY) apiKey: String
+    ): Call<PictureMarsResponse>
 
 }

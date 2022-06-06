@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.kotlin_materialdesign_nasa.BuildConfig
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentNavigationBinding
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPhotoEarthAndMoonBinding
@@ -55,9 +56,16 @@ class PhotoEarthAndMoonFragment : Fragment() {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.SuccessEarth -> {
                 binding.loading.visibility = View.GONE
-                binding.imageViewE.load(pictureOfTheDataAppState.pictureEpicEarthResponseData.caption) {
+                    // binding.imageViewE.load(pictureOfTheDataAppState.pictureEpicEarthResponseData.caption)
+                val strDate = pictureOfTheDataAppState.pictureEpicEarthResponseData.last().date.split(" ").first()
+                val image =pictureOfTheDataAppState.pictureEpicEarthResponseData.last().image
+                val url = "https://api.nasa.gov/EPIC/archive/natural/" +
+                        strDate.replace("-","/",true) +
+                        "/png/" +
+                        "$image" +
+                        ".png?api_key=${BuildConfig.NASA_API_KEY}"
+                binding.imageViewE.load(url)
 
-                }
             }
             is PictureOfTheDataAppState.Loading -> {
                 binding.loading.visibility = View.VISIBLE

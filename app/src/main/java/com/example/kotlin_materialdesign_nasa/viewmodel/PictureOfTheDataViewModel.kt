@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.kotlin_materialdesign_nasa.BuildConfig
 import com.example.kotlin_materialdesign_nasa.repository.PictureOfTheRetrofitImpl
 import com.example.kotlin_materialdesign_nasa.repository.dto.PictureEpicEarthResponseData
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureMarsResponse
 import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,6 +44,54 @@ class PictureOfTheDataViewModel(
         }
     }
 
+
+    fun sendRequestMars() {
+        LiveData.postValue(PictureOfTheDataAppState.Loading)
+        val earthDate = getDayBeforeYesterday()
+        val apiKey = BuildConfig.NASA_API_KEY
+        if (apiKey.isBlank()) {
+            PictureOfTheDataAppState.Error(Throwable(API_ERROR))
+        } else {
+            pictureOfTheDataRetrofitImpl.getMarsPhoto(
+                earthDate,apiKey,
+                marsCallbak
+            )
+
+        }
+    }
+    val marsCallbak = object : Callback<PictureMarsResponse> {
+        override fun onResponse(
+            call: Call<PictureMarsResponse>,
+            response: Response<PictureMarsResponse>
+        ) {
+            if (response.isSuccessful && response.body() != null) {
+                LiveData.postValue(PictureOfTheDataAppState.SuccessMars(response.body()!!))
+
+            } else {
+                LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))}
+
+        }
+
+        override fun onFailure(call:  Call<PictureMarsResponse>, t: Throwable) {
+            PictureOfTheDataAppState.Error(t)
+        }
+
+
+
+    }
+
+    fun getDayBeforeYesterday(): String {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val yesterday = LocalDateTime.now().minusDays(2)
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            return yesterday.format(formatter)
+        } else {
+            val cal: Calendar = Calendar.getInstance()
+            val s = SimpleDateFormat("yyyy-MM-dd")
+            cal.add(Calendar.DAY_OF_YEAR, -2)
+            return s.format(cal.time)
+        }
+    }
     fun sendRequestEpicEarth() {
         LiveData.postValue(PictureOfTheDataAppState.Loading)
         val apiKey = BuildConfig.NASA_API_KEY
@@ -56,10 +105,10 @@ class PictureOfTheDataViewModel(
 
         }
     }
-    val earthCallbak = object : Callback<PictureEpicEarthResponseData> {
+    val earthCallbak = object : Callback<List<PictureEpicEarthResponseData>> {
         override fun onResponse(
-            call: Call<PictureEpicEarthResponseData>,
-            response: Response<PictureEpicEarthResponseData>
+            call: Call<List<PictureEpicEarthResponseData>>,
+            response: Response<List<PictureEpicEarthResponseData>>
         ) {
             if (response.isSuccessful && response.body() != null) {
                 LiveData.postValue(PictureOfTheDataAppState.SuccessEarth(response.body()!!))
@@ -69,7 +118,7 @@ class PictureOfTheDataViewModel(
 
         }
 
-        override fun onFailure(call:  Call<PictureEpicEarthResponseData>, t: Throwable) {
+        override fun onFailure(call:  Call<List<PictureEpicEarthResponseData>>, t: Throwable) {
             PictureOfTheDataAppState.Error(t)
         }
 

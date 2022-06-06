@@ -15,6 +15,6 @@
             android:icon="@drawable/ic_planet"
             android:title="Photo planet" />
 
-     \
+
     </group>
 </menu>

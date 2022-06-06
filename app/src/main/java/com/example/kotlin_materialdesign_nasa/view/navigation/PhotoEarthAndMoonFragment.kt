@@ -4,18 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.kotlin_materialdesign_nasa.BuildConfig
 import com.example.kotlin_materialdesign_nasa.R
-import com.example.kotlin_materialdesign_nasa.databinding.FragmentNavigationBinding
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPhotoEarthAndMoonBinding
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 class PhotoEarthAndMoonFragment : Fragment() {
@@ -31,9 +28,11 @@ class PhotoEarthAndMoonFragment : Fragment() {
         _binding = null
 
     }
+
     private val viewModel: PictureOfTheDataViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDataViewModel::class.java)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getLiveData().observe(viewLifecycleOwner, Observer {
@@ -44,7 +43,6 @@ class PhotoEarthAndMoonFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,15 +50,18 @@ class PhotoEarthAndMoonFragment : Fragment() {
         _binding = FragmentPhotoEarthAndMoonBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.SuccessEarth -> {
                 binding.loading.visibility = View.GONE
-                    // binding.imageViewE.load(pictureOfTheDataAppState.pictureEpicEarthResponseData.caption)
-                val strDate = pictureOfTheDataAppState.pictureEpicEarthResponseData.last().date.split(" ").first()
-                val image =pictureOfTheDataAppState.pictureEpicEarthResponseData.last().image
+                // binding.imageViewE.load(pictureOfTheDataAppState.pictureEpicEarthResponseData.caption)
+                val strDate =
+                    pictureOfTheDataAppState.pictureEpicEarthResponseData.last().date.split(" ")
+                        .first()
+                val image = pictureOfTheDataAppState.pictureEpicEarthResponseData.last().image
                 val url = "https://api.nasa.gov/EPIC/archive/natural/" +
-                        strDate.replace("-","/",true) +
+                        strDate.replace("-", "/", true) +
                         "/png/" +
                         "$image" +
                         ".png?api_key=${BuildConfig.NASA_API_KEY}"

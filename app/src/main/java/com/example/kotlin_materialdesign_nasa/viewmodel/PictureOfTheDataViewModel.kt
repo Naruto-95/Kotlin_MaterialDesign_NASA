@@ -27,9 +27,7 @@ class PictureOfTheDataViewModel(
     fun getLiveData() = LiveData
 
 
-
-
-    fun sendRequest(day:Int) {
+    fun sendRequest(day: Int) {
         val date = getDate(day)
         LiveData.postValue(PictureOfTheDataAppState.Loading)
         val apiKey = BuildConfig.NASA_API_KEY
@@ -53,12 +51,13 @@ class PictureOfTheDataViewModel(
             PictureOfTheDataAppState.Error(Throwable(API_ERROR))
         } else {
             pictureOfTheDataRetrofitImpl.getMarsPhoto(
-                earthDate,apiKey,
+                earthDate, apiKey,
                 marsCallbak
             )
 
         }
     }
+
     val marsCallbak = object : Callback<PictureMarsResponse> {
         override fun onResponse(
             call: Call<PictureMarsResponse>,
@@ -68,14 +67,14 @@ class PictureOfTheDataViewModel(
                 LiveData.postValue(PictureOfTheDataAppState.SuccessMars(response.body()!!))
 
             } else {
-                LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))}
+                LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))
+            }
 
         }
 
-        override fun onFailure(call:  Call<PictureMarsResponse>, t: Throwable) {
+        override fun onFailure(call: Call<PictureMarsResponse>, t: Throwable) {
             PictureOfTheDataAppState.Error(t)
         }
-
 
 
     }
@@ -92,6 +91,8 @@ class PictureOfTheDataViewModel(
             return s.format(cal.time)
         }
     }
+
+
     fun sendRequestEpicEarth() {
         LiveData.postValue(PictureOfTheDataAppState.Loading)
         val apiKey = BuildConfig.NASA_API_KEY
@@ -105,6 +106,7 @@ class PictureOfTheDataViewModel(
 
         }
     }
+
     val earthCallbak = object : Callback<List<PictureEpicEarthResponseData>> {
         override fun onResponse(
             call: Call<List<PictureEpicEarthResponseData>>,
@@ -114,17 +116,18 @@ class PictureOfTheDataViewModel(
                 LiveData.postValue(PictureOfTheDataAppState.SuccessEarth(response.body()!!))
 
             } else {
-                    LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))}
+                LiveData.postValue(PictureOfTheDataAppState.Error(SocketTimeoutException("dsfsfd")))
+            }
 
         }
 
-        override fun onFailure(call:  Call<List<PictureEpicEarthResponseData>>, t: Throwable) {
+        override fun onFailure(call: Call<List<PictureEpicEarthResponseData>>, t: Throwable) {
             PictureOfTheDataAppState.Error(t)
         }
 
 
-
     }
+
     private fun getDate(day: Int): String {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val yesterday = LocalDateTime.now().minusDays(day.toLong())
@@ -156,9 +159,10 @@ class PictureOfTheDataViewModel(
         }
 
     }
-        companion object {
-            private const val API_ERROR = "You need API Key"
-            private const val UNKNOWN_ERROR = "Unidentified error"
-        }
+
+    companion object {
+        private const val API_ERROR = "You need API Key"
+        private const val UNKNOWN_ERROR = "Unidentified error"
+    }
 
 }

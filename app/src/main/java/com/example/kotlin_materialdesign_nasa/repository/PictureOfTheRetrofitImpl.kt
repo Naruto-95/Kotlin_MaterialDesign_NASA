@@ -1,6 +1,8 @@
 package com.example.kotlin_materialdesign_nasa.repository
 
-import com.example.kotlin_materialdesign_nasa.repository.dto.*
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureEpicEarthResponseData
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureMarsResponse
+import com.example.kotlin_materialdesign_nasa.repository.dto.PictureOfTheResponseData
 import com.example.kotlin_materialdesign_nasa.utils.NASA_BASE_URL
 import com.google.gson.GsonBuilder
 import retrofit2.Callback
@@ -30,6 +32,8 @@ class PictureOfTheRetrofitImpl {
     fun getMarsPhoto(earth_date:String, apiKey: String, marsCallback: Callback<PictureMarsResponse>) {
         getRetrofit().getMarsPhoto(apiKey,earth_date).enqueue(marsCallback)
     }
+
+
 }
 
 

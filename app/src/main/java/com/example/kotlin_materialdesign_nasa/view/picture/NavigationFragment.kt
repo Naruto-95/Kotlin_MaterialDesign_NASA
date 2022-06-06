@@ -57,6 +57,7 @@ class NavigationFragment : BottomSheetDialogFragment() {
                         dialog!!.dismiss()
                     }
                 }
+
             }
             true
         }

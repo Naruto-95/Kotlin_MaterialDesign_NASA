@@ -42,7 +42,6 @@ class PhotoMarsAndWeatherFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,26 +53,31 @@ class PhotoMarsAndWeatherFragment : Fragment() {
     private fun renderData(pictureOfTheDataAppState: PictureOfTheDataAppState) {
         when (pictureOfTheDataAppState) {
             is PictureOfTheDataAppState.SuccessMars -> {
-                binding.imageViewM.load(pictureOfTheDataAppState.pictureMarsResponse.photos)
-
-
-
-            }
-            is PictureOfTheDataAppState.Loading -> {
-
-                binding.imageViewM.load(R.drawable.ic_no_photo_vector)
-            }
-            is PictureOfTheDataAppState.Error -> {
-
-                pictureOfTheDataAppState.error.message
+                if (pictureOfTheDataAppState.pictureMarsResponse.photos.isEmpty()) {
+                } else {
+                    val url = pictureOfTheDataAppState.pictureMarsResponse.photos.first().imgSrc
+                    binding.imageViewM.load(url)
+                }
 
             }
+                is PictureOfTheDataAppState.Loading -> {
+
+                    binding.imageViewM.load(R.drawable.ic_no_photo_vector)
+                }
+                is PictureOfTheDataAppState.Error -> {
+
+                    pictureOfTheDataAppState.error.message
+
+                }
+
         }
 
     }
-    companion object {
+            companion object {
 
-        @JvmStatic
-        fun newInstance() = PhotoMarsAndWeatherFragment()
-    }
+                @JvmStatic
+                fun newInstance() = PhotoMarsAndWeatherFragment()
+            }
+
+
 }

@@ -14,6 +14,7 @@ import coil.load
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentPictureBinding
 import com.example.kotlin_materialdesign_nasa.view.MainActivity
+import com.example.kotlin_materialdesign_nasa.view.coordinator.ChipsFragment
 import com.example.kotlin_materialdesign_nasa.view.settings.SettingsFragment
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataAppState
 import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewModel

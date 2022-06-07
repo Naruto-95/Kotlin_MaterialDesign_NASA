@@ -11,5 +11,8 @@
     <dimen name="TextInputLayout_width">0dp</dimen>
     <dimen name="progressBar_minW">200dp</dimen>
     <dimen name="progressBar_minH">50dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>

@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentChipsBinding
+import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoDayYesterdayFragment
+import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoEarthAndMoonFragment
+import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoMarsAndWeatherFragment
 
 class ChipsFragment : Fragment() {
 
@@ -32,6 +36,27 @@ class ChipsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        openFargments()
+
+    }
+
+    private fun openFargments() {
+
+        binding.fab.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, PhotoDayYesterdayFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
+        binding.fab1.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, PhotoEarthAndMoonFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
+        binding.fab2.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, PhotoMarsAndWeatherFragment.newInstance()).addToBackStack("")
+                .commit()
+        }
 
 
     }

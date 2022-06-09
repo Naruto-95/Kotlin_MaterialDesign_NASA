@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="@dimen/marginImagEend"
             android:layout_marginBottom="@dimen/marginImagBottom"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/inputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/inputLayout"
@@ -37,10 +36,10 @@
             app:counterEnabled="true"
             app:counterMaxLength="20"
             app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_baseline_search_24"
             app:helperText="@string/wiki_helper_text"
             app:layout_constraintBottom_toTopOf="@+id/chipGroup"
-            app:layout_constraintStart_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -111,9 +110,8 @@
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
+
     </androidx.core.widget.NestedScrollView>
-
-
     <include
         android:id="@+id/btnSheet"
         layout="@layout/bottom_sheet_layout" />

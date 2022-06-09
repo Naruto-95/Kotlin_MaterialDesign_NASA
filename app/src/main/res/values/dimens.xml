@@ -16,5 +16,7 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="marginImagEend">8dp</dimen>
     <dimen name="marginImagBottom">10dp</dimen>
+    <dimen name="Сard">150dp</dimen>
+    <dimen name="linerLayout">100dp</dimen>
 
 </resources>

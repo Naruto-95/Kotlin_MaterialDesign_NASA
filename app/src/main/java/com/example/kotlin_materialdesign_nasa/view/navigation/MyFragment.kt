@@ -29,8 +29,6 @@ class MyFragment : Fragment() {
              binding.viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
         binding.tabLayout.setupWithViewPager( binding.viewPager)
 
-
-
     }
 
 

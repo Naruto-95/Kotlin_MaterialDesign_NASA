@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentMyBinding
+import com.example.kotlin_materialdesign_nasa.view.navigation.viewpager.ViewPagerAdapter
 
 
 class NavigationFragment : Fragment() {
@@ -25,12 +26,12 @@ class NavigationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
 
-        binding.bottomNav.setOnItemSelectedListener { item ->
+        binding.bottomNav.setOnItemReselectedListener { item ->
             when (item.itemId) {
-                R.id.today -> {
-                    requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.containerr, PhotoDayYesterdayFragment.newInstance()).commit()
+                R.id.today -> { requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.containerr,PhotoDayYesterdayFragment.newInstance()).commit()
 
                 }
                 R.id.earth -> {
@@ -40,16 +41,14 @@ class NavigationFragment : Fragment() {
                 }
                 R.id.mars -> {
                     requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(R.id.containerr, PhotoMarsAndWeatherFragment.newInstance()).commit()
+                        .replace(R.id.containerr, PhotoMarsAndWeatherFragment.newInstance())
+                        .commit()
 
                 }
-
-
-
             }
             true
-
         }
+        binding.bottomNav.selectedItemId = R.id.earth
     }
 
     override fun onCreateView(

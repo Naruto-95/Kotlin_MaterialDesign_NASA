@@ -15,6 +15,11 @@
             android:icon="@drawable/ic_earth"
             android:title="Photo planet" />
 
+        <item
+            android:id="@+id/navigation_wiki"
+            android:icon="@drawable/ic_wikipedia"
+            android:title="Photo planet" />
+
 
     </group>
 </menu>

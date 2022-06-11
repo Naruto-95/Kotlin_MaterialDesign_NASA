@@ -6,21 +6,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
 import com.example.kotlin_materialdesign_nasa.R
+import com.example.kotlin_materialdesign_nasa.databinding.ActivityMainBinding
 import com.example.kotlin_materialdesign_nasa.utils.*
-import com.example.kotlin_materialdesign_nasa.view.coordinator.ChipsFragment
-import com.example.kotlin_materialdesign_nasa.view.navigation.NavigationFragment
 import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
 
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(
             MODE_NIGHT_AUTO_BATTERY
         )
         setTheme(getChoosingStyle(getStyleTheme()))
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
     fun setStyleTheme(styleTheme: Int) {
         val sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
 
 
 

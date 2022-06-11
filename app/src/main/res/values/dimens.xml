@@ -18,5 +18,6 @@
     <dimen name="marginImagBottom">10dp</dimen>
     <dimen name="Сard">150dp</dimen>
     <dimen name="linerLayout">100dp</dimen>
+    <dimen name="margin_card">8dp</dimen>
 
 </resources>

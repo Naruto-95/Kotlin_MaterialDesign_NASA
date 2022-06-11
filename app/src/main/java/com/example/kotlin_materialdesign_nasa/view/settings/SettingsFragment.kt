@@ -2,7 +2,6 @@ package com.example.kotlin_materialdesign_nasa.view.settings
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.example.kotlin_materialdesign_nasa.utils.greenTheme
 import com.example.kotlin_materialdesign_nasa.utils.mainTheme
 import com.example.kotlin_materialdesign_nasa.utils.redTheme
 import com.example.kotlin_materialdesign_nasa.view.MainActivity
-import com.google.android.material.tabs.TabLayout
 
 
 class SettingsFragment : Fragment(), View.OnClickListener {
@@ -52,19 +50,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
-        binding.tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                Log.d("111", "${tab?.position}")
-            }
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                //  TODO("Not yet implemented")
-            }
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                //  TODO("Not yet implemented")
-            }
 
-
-        })
     }
 
     private fun init() {

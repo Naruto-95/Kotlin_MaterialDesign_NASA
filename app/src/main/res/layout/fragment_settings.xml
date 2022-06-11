@@ -6,71 +6,50 @@
     android:orientation="vertical">
 
 
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:text="@string/main_themee"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:text="@string/red_themee"/>
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:text="@string/green_themee"/>
-    </com.google.android.material.tabs.TabLayout>
-
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Сard"
-        app:rippleColor="@color/mGreen"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/margin_card"
+        app:cardBackgroundColor="@color/color_gray">
 
 
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:id="@+id/btnOne"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_themee"
-            android:textColor="@color/mPurple" />
+            android:layout_gravity="center">
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:id="@+id/btnTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/red_themee"
-            android:textColor="@color/mRed" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnOne"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_themee"
+                android:textColor="@color/mPurple" />
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:id="@+id/btnThree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/green_themee"
-            android:textColor="@color/mGreen" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnTwo"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/red_themee"
+                android:textColor="@color/mRed" />
 
-    </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnThree"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/green_themee"
+                android:textColor="@color/mGreen" />
+
+        </com.google.android.material.chip.ChipGroup>
 
 
     </com.google.android.material.card.MaterialCardView>
 
 
-
-
 </LinearLayout>
+
+

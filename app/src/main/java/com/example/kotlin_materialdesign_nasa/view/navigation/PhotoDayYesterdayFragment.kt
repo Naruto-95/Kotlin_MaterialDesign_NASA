@@ -1,11 +1,15 @@
 package com.example.kotlin_materialdesign_nasa.view.navigation
 
 import android.os.Bundle
-import android.transition.*
-import android.view.Gravity
+import android.transition.ChangeBounds
+import android.transition.ChangeImageTransform
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +22,8 @@ import com.example.kotlin_materialdesign_nasa.viewmodel.PictureOfTheDataViewMode
 
 class PhotoDayYesterdayFragment : Fragment() {
 
+
+    var isOpen: Boolean = false
     private var _binding: FragmentPhotoDayYesterdayBinding? = null
     private val binding: FragmentPhotoDayYesterdayBinding
         get() {
@@ -41,6 +47,24 @@ class PhotoDayYesterdayFragment : Fragment() {
         })
 
         OnClikChip()
+        imageAnimation()
+    }
+
+    private fun imageAnimation() {
+        binding.imageView.setOnClickListener {
+            isOpen = !isOpen
+            val transitionImage = ChangeImageTransform()
+            transitionImage.duration = 2000
+            binding.imageView.scaleType =
+                if (isOpen) {
+                    ImageView.ScaleType.CENTER_CROP
+                } else {
+                    ImageView.ScaleType.CENTER_INSIDE
+                }
+            TransitionManager.beginDelayedTransition(binding.animationContainer, transitionImage)
+
+
+        }
     }
 
     private fun OnClikChip() {
@@ -77,11 +101,11 @@ class PhotoDayYesterdayFragment : Fragment() {
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
                     binding.explanation.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
-                    val transition= ChangeBounds()
-                    transition.duration= 5000
-                    val transitionSet = TransitionSet()
-                    transitionSet.addTransition(transition)
-                    TransitionManager.beginDelayedTransition(binding.animationContainer,transitionSet)
+                    val transition = ChangeBounds()
+                    transition.duration = 3000
+                    TransitionManager.beginDelayedTransition(binding.animationContainer, transition)
+
+
                 }
             }
             is PictureOfTheDataAppState.Loading -> {

@@ -3,8 +3,11 @@ package com.example.kotlin_materialdesign_nasa.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.transition.ChangeImageTransform
+import android.transition.TransitionManager
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -22,6 +25,7 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class PictureFragment : Fragment() {
+    var isOpen: Boolean = false
     private var isMenu = true
     private var _binding: FragmentPictureBinding? = null
     private val binding: FragmentPictureBinding
@@ -90,8 +94,26 @@ class PictureFragment : Fragment() {
         behaviour()
         switching()
         OnClikChip()
+        imageAnimation()
 
 
+    }
+
+    private fun imageAnimation() {
+        binding.imageView.setOnClickListener {
+            isOpen = !isOpen
+            val transitionImage = ChangeImageTransform()
+            transitionImage.duration = 2000
+            binding.imageView.scaleType =
+                if (isOpen) {
+                    ImageView.ScaleType.CENTER_CROP
+                } else {
+                    ImageView.ScaleType.CENTER_INSIDE
+                }
+            TransitionManager.beginDelayedTransition(binding.picture, transitionImage)
+
+
+        }
     }
 
     private fun OnClikChip() {

@@ -1,6 +1,8 @@
 package com.example.kotlin_materialdesign_nasa.view.navigation
 
 import android.os.Bundle
+import android.transition.*
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,6 +77,11 @@ class PhotoDayYesterdayFragment : Fragment() {
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
                     binding.explanation.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
+                    val transition= ChangeBounds()
+                    transition.duration= 5000
+                    val transitionSet = TransitionSet()
+                    transitionSet.addTransition(transition)
+                    TransitionManager.beginDelayedTransition(binding.animationContainer,transitionSet)
                 }
             }
             is PictureOfTheDataAppState.Loading -> {

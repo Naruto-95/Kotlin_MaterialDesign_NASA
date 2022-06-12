@@ -1,5 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.view.coordinator
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,10 @@ import com.example.kotlin_materialdesign_nasa.databinding.FragmentChipsBinding
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoDayYesterdayFragment
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoEarthAndMoonFragment
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoMarsAndWeatherFragment
+import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
 
 class ChipsFragment : Fragment() {
+
 
     private var _binding: FragmentChipsBinding? = null
     private val binding: FragmentChipsBinding
@@ -38,6 +41,8 @@ class ChipsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         openFargments()
 
+
+
     }
 
     private fun openFargments() {
@@ -54,13 +59,13 @@ class ChipsFragment : Fragment() {
         }
         binding.fab2.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PhotoMarsAndWeatherFragment.newInstance()).addToBackStack("")
+                .replace(R.id.container, PhotoMarsAndWeatherFragment.newInstance())
+                .addToBackStack("")
                 .commit()
         }
 
 
     }
-
 
 
 

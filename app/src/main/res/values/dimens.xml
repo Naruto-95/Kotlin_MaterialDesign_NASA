@@ -19,5 +19,9 @@
     <dimen name="Сard">150dp</dimen>
     <dimen name="linerLayout">100dp</dimen>
     <dimen name="margin_card">8dp</dimen>
+    <dimen name="shadow">52dp</dimen>
+    <dimen name="shadowStart">10dp</dimen>
+    <dimen name="shadowSize">20sp</dimen>
+    <dimen name="shadowTop">52dp</dimen>
 
 </resources>

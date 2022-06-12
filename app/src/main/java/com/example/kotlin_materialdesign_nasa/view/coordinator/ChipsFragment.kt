@@ -1,6 +1,5 @@
 package com.example.kotlin_materialdesign_nasa.view.coordinator
 
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import com.example.kotlin_materialdesign_nasa.databinding.FragmentChipsBinding
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoDayYesterdayFragment
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoEarthAndMoonFragment
 import com.example.kotlin_materialdesign_nasa.view.navigation.PhotoMarsAndWeatherFragment
-import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
 
 class ChipsFragment : Fragment() {
 
@@ -42,7 +40,6 @@ class ChipsFragment : Fragment() {
         openFargments()
 
 
-
     }
 
     private fun openFargments() {
@@ -66,8 +63,6 @@ class ChipsFragment : Fragment() {
 
 
     }
-
-
 
 
     companion object {

@@ -50,7 +50,12 @@ class NavigationFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_photo -> {
                     Toast.makeText(context, "3", Toast.LENGTH_LONG).show()
-                    requireActivity().supportFragmentManager.beginTransaction()
+                    requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                        R.anim.slide_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.slide_out
+                    )
                         .replace(R.id.container, MyFragment.newInstance()).addToBackStack("")
                         .commit()
                     if (dialog?.isShowing == true) {

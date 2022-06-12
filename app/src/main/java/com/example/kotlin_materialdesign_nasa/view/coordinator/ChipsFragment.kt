@@ -45,17 +45,32 @@ class ChipsFragment : Fragment() {
     private fun openFargments() {
 
         binding.fab.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
                 .replace(R.id.container, PhotoDayYesterdayFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.fab1.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
                 .replace(R.id.container, PhotoEarthAndMoonFragment.newInstance()).addToBackStack("")
                 .commit()
         }
         binding.fab2.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
+            requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
                 .replace(R.id.container, PhotoMarsAndWeatherFragment.newInstance())
                 .addToBackStack("")
                 .commit()

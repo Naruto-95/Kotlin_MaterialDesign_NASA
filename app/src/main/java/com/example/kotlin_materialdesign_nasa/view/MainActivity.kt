@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
 import com.example.kotlin_materialdesign_nasa.R
 import com.example.kotlin_materialdesign_nasa.animation.AnimationFragment
+import com.example.kotlin_materialdesign_nasa.animation.ConstraintSetFragment
 import com.example.kotlin_materialdesign_nasa.animation.ShadowAnimationFragment
 import com.example.kotlin_materialdesign_nasa.databinding.ActivityMainBinding
 import com.example.kotlin_materialdesign_nasa.utils.*
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ShadowAnimationFragment.newInstance()).addToBackStack("").commit()
+                .replace(R.id.container, ConstraintSetFragment.newInstance()).addToBackStack("").commit()
         }
 
 

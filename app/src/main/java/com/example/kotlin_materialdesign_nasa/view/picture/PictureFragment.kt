@@ -3,12 +3,14 @@ package com.example.kotlin_materialdesign_nasa.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.transition.ChangeBounds
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -50,12 +52,22 @@ class PictureFragment : Fragment() {
 
             R.id.app_bar_search -> {
                 Toast.makeText(context, "настройки", Toast.LENGTH_LONG).show()
-                requireActivity().supportFragmentManager.beginTransaction()
+                requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                    R.anim.slide_in,
+                    R.anim.fade_out,
+                    R.anim.fade_in,
+                    R.anim.slide_out
+                )
                     .replace(R.id.container, SettingsFragment.newInstance()).addToBackStack("")
                     .commit()
             }
             R.id.s -> {
-                requireActivity().supportFragmentManager.beginTransaction()
+                requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                    R.anim.slide_in,
+                    R.anim.fade_out,
+                    R.anim.fade_in,
+                    R.anim.slide_out
+                )
                     .replace(R.id.container, ChipsFragment.newInstance()).addToBackStack("")
                     .commit()
             }
@@ -97,7 +109,12 @@ class PictureFragment : Fragment() {
         imageAnimation()
 
 
+
     }
+
+
+
+
 
     private fun imageAnimation() {
         binding.imageView.setOnClickListener {

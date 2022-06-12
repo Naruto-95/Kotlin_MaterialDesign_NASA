@@ -30,17 +30,33 @@ class NavigationFragment : Fragment() {
 
         binding.bottomNav.setOnItemReselectedListener { item ->
             when (item.itemId) {
-                R.id.today -> { requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.containerr,PhotoDayYesterdayFragment.newInstance()).commit()
+                R.id.today -> {
+                    requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                        R.anim.slide_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.slide_out
+                    )
+                        .replace(R.id.containerr, PhotoDayYesterdayFragment.newInstance()).commit()
 
                 }
                 R.id.earth -> {
-                    requireActivity().supportFragmentManager.beginTransaction()
+                    requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                        R.anim.slide_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.slide_out
+                    )
                         .replace(R.id.containerr, PhotoEarthAndMoonFragment.newInstance()).commit()
 
                 }
                 R.id.mars -> {
-                    requireActivity().supportFragmentManager.beginTransaction()
+                    requireActivity().supportFragmentManager.beginTransaction().setCustomAnimations(
+                        R.anim.slide_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.slide_out
+                    )
                         .replace(R.id.containerr, PhotoMarsAndWeatherFragment.newInstance())
                         .commit()
 

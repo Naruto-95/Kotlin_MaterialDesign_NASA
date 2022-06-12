@@ -23,5 +23,16 @@
     <dimen name="shadowStart">10dp</dimen>
     <dimen name="shadowSize">20sp</dimen>
     <dimen name="shadowTop">52dp</dimen>
+    <dimen name="ImageTop">10dp</dimen>
+    <dimen name="topT">48dp</dimen>
+    <dimen name="psT">24dp</dimen>
+    <dimen name="ptT">8dp</dimen>
+    <dimen name="peT">24dp</dimen>
+    <dimen name="sizeT">45sp</dimen>
+    <dimen name="mTap">8dp</dimen>
+    <dimen name="mBtab">12dp</dimen>
+    <dimen name="tSizetap">15sp</dimen>
+    <dimen name="sizeDes">22sp</dimen>
+    <dimen name="TextS">50sp</dimen>
 
 </resources>

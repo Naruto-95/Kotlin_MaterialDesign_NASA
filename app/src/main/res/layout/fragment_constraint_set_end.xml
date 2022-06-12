@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintСontainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181818">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/set_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/click_on_the_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/TextS"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/tap"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImage" />
+
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/topT"
+        android:background="@color/purple_500"
+        android:paddingStart="@dimen/psT"
+        android:paddingTop="@dimen/ptT"
+        android:paddingEnd="@dimen/peT"
+        android:paddingBottom="8dp"
+        android:text="@string/nasa_application"
+        android:textColor="#FFFF"
+        android:textSize="@dimen/sizeT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/backgroundImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mTap"
+        android:layout_marginEnd="@dimen/mTap"
+        android:layout_marginBottom="@dimen/mBtab"
+        android:text="@string/show_description"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/tSizetap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_600"
+        android:gravity="center"
+        android:paddingStart="@dimen/mTap"
+        android:paddingEnd="@dimen/mTap"
+        android:paddingBottom="@dimen/mTap"
+        android:text="@string/this_is_not_a_finalized_application"
+        android:textColor="#FFFF"
+        android:textSize="@dimen/sizeDes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/wiki_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+       android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:srcCompat="@drawable/ic_wikipedia" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

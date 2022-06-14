@@ -13,6 +13,7 @@ import com.example.kotlin_materialdesign_nasa.animation.AnimationFragment
 import com.example.kotlin_materialdesign_nasa.animation.ConstraintSetFragment
 import com.example.kotlin_materialdesign_nasa.animation.ShadowAnimationFragment
 import com.example.kotlin_materialdesign_nasa.databinding.ActivityMainBinding
+import com.example.kotlin_materialdesign_nasa.recycler.RecyclerFragment
 import com.example.kotlin_materialdesign_nasa.utils.*
 import com.example.kotlin_materialdesign_nasa.view.navigation.MyFragment
 import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ConstraintSetFragment.newInstance()).addToBackStack("").commit()
+                .replace(R.id.container, RecyclerFragment.newInstance()).addToBackStack("").commit()
         }
 
 

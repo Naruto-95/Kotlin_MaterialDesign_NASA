@@ -34,5 +34,11 @@
     <dimen name="tSizetap">15sp</dimen>
     <dimen name="sizeDes">22sp</dimen>
     <dimen name="TextS">50sp</dimen>
+    <dimen name="wid">120dp</dimen>
+    <dimen name="RmarsSize">35sp</dimen>
+    <dimen name="RmarsText">15sp</dimen>
+    <dimen name="earthWH">120dp</dimen>
+    <dimen name="RearthSize">35sp</dimen>
+    <dimen name="RearthSize15">15sp</dimen>
 
 </resources>

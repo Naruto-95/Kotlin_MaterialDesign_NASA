@@ -117,4 +117,5 @@
 
     <string name="this_is_not_a_finalized_application">This is not a finalized application yet, but you can click on the wikipedia icon and explore the application</string>
     <string name="click_on_the_text">Click on the text</string>
+    <string name="mars">Mars</string>
 </resources>

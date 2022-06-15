@@ -9,7 +9,7 @@ import com.example.kotlin_materialdesign_nasa.recycler.Data
      override fun mBind(data: Data) {
             (FragmentRecyclerEarthBinding.bind(itemView)).apply {
                 textEarth.text = data.mText
-                descriptionTextView.text = data.mText
+                descriptionTextViewE.text = data.mText
 
 
             }

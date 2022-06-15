@@ -40,5 +40,8 @@
     <dimen name="earthWH">120dp</dimen>
     <dimen name="RearthSize">35sp</dimen>
     <dimen name="RearthSize15">15sp</dimen>
+    <dimen name="paddingText">15dp</dimen>
+    <dimen name="SizeHeader">40sp</dimen>
+    <dimen name="pxView">1px</dimen>
 
 </resources>

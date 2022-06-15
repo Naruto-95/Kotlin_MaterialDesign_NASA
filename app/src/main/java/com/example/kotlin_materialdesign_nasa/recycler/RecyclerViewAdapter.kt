@@ -3,12 +3,15 @@ package com.example.kotlin_materialdesign_nasa.recycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlin_materialdesign_nasa.databinding.FragmentHeaderBinding
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerEarthBinding
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerMarsBinding
 import com.example.kotlin_materialdesign_nasa.recycler.mViewHolders.BaseViewHolder
 import com.example.kotlin_materialdesign_nasa.recycler.mViewHolders.Earth
+import com.example.kotlin_materialdesign_nasa.recycler.mViewHolders.Header
 import com.example.kotlin_materialdesign_nasa.recycler.mViewHolders.Mars
 import com.example.kotlin_materialdesign_nasa.utils.EARTH_R
+import com.example.kotlin_materialdesign_nasa.utils.HEADER_R
 import com.example.kotlin_materialdesign_nasa.utils.MARS_R
 
 class RecyclerViewAdapter(
@@ -31,9 +34,13 @@ class RecyclerViewAdapter(
                 val view = FragmentRecyclerMarsBinding.inflate(LayoutInflater.from(parent.context))
                 Mars(view.root)
             }
+            HEADER_R -> {
+                val view = FragmentHeaderBinding.inflate(LayoutInflater.from(parent.context))
+                Header(view.root)
+            }
             else -> {
                 val view = FragmentRecyclerMarsBinding.inflate(LayoutInflater.from(parent.context))
-                Mars (view.root)
+                Mars(view.root)
             }
         }
 

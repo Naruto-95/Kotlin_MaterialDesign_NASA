@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerBinding
 import com.example.kotlin_materialdesign_nasa.utils.EARTH_R
+import com.example.kotlin_materialdesign_nasa.utils.HEADER_R
 import com.example.kotlin_materialdesign_nasa.utils.MARS_R
 
 
@@ -27,6 +28,7 @@ class RecyclerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val list = arrayListOf(
+            Data("Header","", HEADER_R),
             Data("Earth","Earth drs", EARTH_R),
             Data("Earth","Earth drs", EARTH_R),
             Data("Mars","Mars drs", MARS_R),

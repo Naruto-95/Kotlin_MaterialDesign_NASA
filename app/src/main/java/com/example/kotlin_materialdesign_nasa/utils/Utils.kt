@@ -12,3 +12,4 @@ const val redTheme = 2
 const val greenTheme = 3
 const val EARTH_R = 0
 const val MARS_R = 1
+const val HEADER_R = 2

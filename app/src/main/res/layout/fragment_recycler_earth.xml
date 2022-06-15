@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_wikipedia" />
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/descriptionTextView"
+        android:id="@+id/descriptionTextViewE"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="#000"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toStartOf="@+id/barrier"
         app:layout_constraintStart_toEndOf="@+id/earthImageView"
         app:layout_constraintTop_toTopOf="@+id/earthImageView" />
-    © geekbrains.ru 3
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
         app:constraint_referenced_ids="wikiImageView" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="@dimen/pxView"
         android:background="#000"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintStart_toStartOf="parent" />

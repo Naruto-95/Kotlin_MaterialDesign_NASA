@@ -64,7 +64,6 @@
         app:layout_constraintBottom_toTopOf="@+id/moveItemDown"
         app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
         app:layout_constraintStart_toEndOf="@+id/earthImageView"
-        app:layout_constraintTop_toTopOf="@+id/descriptionTextViewE"
         app:srcCompat="@android:drawable/arrow_up_float" />
 
     <androidx.appcompat.widget.AppCompatImageView

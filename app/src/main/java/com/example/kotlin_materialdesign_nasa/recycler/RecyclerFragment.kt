@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerBinding
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerEarthBinding
 import com.example.kotlin_materialdesign_nasa.recycler.mViewHolders.BaseViewHolder
@@ -44,6 +45,8 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
         adapter = RecyclerViewAdapter(this)
         adapter.setList(list)
         binding.recyclerView.adapter = adapter
+
+        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView( binding.recyclerView)
 
 
     }

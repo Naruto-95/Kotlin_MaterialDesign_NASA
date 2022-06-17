@@ -1,5 +1,6 @@
 package com.example.kotlin_materialdesign_nasa.recycler
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,7 @@ import kotlin.Pair as Pair
 class RecyclerViewAdapter(
     private var onListItemClickListener:OnListItemClickListener
 ) :
-    RecyclerView.Adapter<BaseViewHolder>() {
+    RecyclerView.Adapter<BaseViewHolder>(),ItemTouchHelperAdapter {
 
     private lateinit var listData: MutableList<Pair<Data, Boolean>>
 
@@ -61,7 +62,7 @@ class RecyclerViewAdapter(
 
     }
 inner class Earth(view: View) :
-    BaseViewHolder(view) {
+    BaseViewHolder(view),ItemTouchHelperViewHolder {
 
 
     override fun mBind(data: Pair<Data, Boolean>) {
@@ -91,10 +92,20 @@ inner class Earth(view: View) :
                     it.first to !it.second
                 }
                 earthDescriptionTextView.visibility = if (listData[layoutPosition].second) View.VISIBLE else View.GONE
+                notifyItemChanged(layoutPosition)
             }
         }
 
 
+
+    }
+
+    override fun onItemSelected() {
+        itemView.setBackgroundColor(Color.LTGRAY)
+    }
+
+    override fun onItemClear() {
+        itemView.setBackgroundColor(0)
     }
 }
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int ) {
@@ -107,6 +118,20 @@ inner class Earth(view: View) :
 override fun getItemCount(): Int {
     return listData.size
 }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        listData.removeAt(fromPosition).apply {
+            listData.add(toPosition, this)
+        }
+        notifyItemMoved(fromPosition,toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        listData.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+
 
 
 }

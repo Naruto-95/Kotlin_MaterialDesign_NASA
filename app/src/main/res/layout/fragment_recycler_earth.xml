@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/earthImageView"
         android:layout_width="@dimen/earthWH"
         android:layout_height="@dimen/earthWH"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/astronomy_earth_galaxy" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textEarth"
         android:layout_width="wrap_content"
@@ -20,38 +23,87 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintEnd_toStartOf="@+id/earthImageView"
-        app:layout_constraintTop_toTopOf="@+id/earthImageView" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/wikiImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_wikipedia" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/descriptionTextViewE"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:textSize="@dimen/RearthSize15"
-        app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
-        app:layout_constraintEnd_toStartOf="@+id/barrier"
-        app:layout_constraintStart_toEndOf="@+id/earthImageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/earthImageView" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/addItemImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="wikiImageView" />
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textEarth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toEndOf="@+id/earthImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433"
+        app:srcCompat="@drawable/ic_send" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/removeItemImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toEndOf="@+id/earthImageView"
+        app:layout_constraintTop_toTopOf="@+id/addItemImageView"
+        app:layout_constraintVertical_bias="0.422"
+        app:srcCompat="@drawable/ic_archive" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="68dp"
+        android:tint="@color/design_default_color_error"
+        app:layout_constraintBottom_toTopOf="@+id/moveItemDown"
+        app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
+        app:layout_constraintStart_toEndOf="@+id/earthImageView"
+        app:layout_constraintTop_toTopOf="@+id/descriptionTextViewE"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:tint="@color/design_default_color_error"
+        app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
+        app:layout_constraintEnd_toStartOf="@+id/addItemImageView"
+        app:layout_constraintStart_toEndOf="@+id/earthImageView"
+        app:layout_constraintTop_toBottomOf="@+id/removeItemImageView"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/earthDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/EarthDes"
+        android:textColor="#000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/earthImageView"
+        tools:visibility="visible" />
+
+
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/pxView"
         android:background="#000"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

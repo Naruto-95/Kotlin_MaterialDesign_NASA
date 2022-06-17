@@ -36,6 +36,30 @@
         app:layout_constraintStart_toEndOf="@+id/earthImageView"
         app:layout_constraintTop_toTopOf="@+id/earthImageView" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/addItemImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/descriptionTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toEndOf="@+id/descriptionTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_send" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/removeItemImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toEndOf="@+id/descriptionTextView"
+        app:layout_constraintTop_toTopOf="@+id/descriptionTextView"
+        app:srcCompat="@drawable/ic_archive" />
+
 
     <View
         android:layout_width="match_parent"

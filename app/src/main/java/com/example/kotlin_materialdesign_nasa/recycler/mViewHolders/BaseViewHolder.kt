@@ -5,5 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_materialdesign_nasa.recycler.Data
 
 abstract class BaseViewHolder (view: View): RecyclerView.ViewHolder(view){
-    abstract fun mBind(data: Data)
+    abstract fun mBind(data: Pair<Data, Boolean>)
+
 }

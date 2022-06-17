@@ -4,15 +4,10 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_materialdesign_nasa.databinding.FragmentRecyclerEarthBinding
 import com.example.kotlin_materialdesign_nasa.recycler.Data
+import com.example.kotlin_materialdesign_nasa.recycler.OnListItemClickListener
+import com.example.kotlin_materialdesign_nasa.recycler.RecyclerViewAdapter
+import com.example.kotlin_materialdesign_nasa.utils.EARTH_R
+import com.example.kotlin_materialdesign_nasa.utils.HEADER_R
+import com.example.kotlin_materialdesign_nasa.utils.MARS_R
+import okhttp3.internal.notify
 
- class Earth(view: View) : BaseViewHolder(view) {
-     override fun mBind(data: Data) {
-            (FragmentRecyclerEarthBinding.bind(itemView)).apply {
-                textEarth.text = data.mText
-                descriptionTextViewE.text = data.mText
-
-
-            }
-        }
-
-}

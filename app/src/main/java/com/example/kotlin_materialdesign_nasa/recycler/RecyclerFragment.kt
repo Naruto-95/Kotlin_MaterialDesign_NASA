@@ -39,6 +39,7 @@ class RecyclerFragment : Fragment(), OnListItemClickListener {
         Pair(Data("Mars", "", MARS_R), false)
     )
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

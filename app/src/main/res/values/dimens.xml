@@ -43,5 +43,14 @@
     <dimen name="paddingText">15dp</dimen>
     <dimen name="SizeHeader">40sp</dimen>
     <dimen name="pxView">1px</dimen>
+    <dimen name="NM">5dp</dimen>
+    <dimen name="Cr">3dp</dimen>
+    <dimen name="Ce">3dp</dimen>
+    <dimen name="e">16dp</dimen>
+    <dimen name="b">16dp</dimen>
+    <dimen name="ee">32dp</dimen>
+    <dimen name="bb">32dp</dimen>
+    <dimen name="ele">10dp</dimen>
+    <dimen name="end">5dp</dimen>
 
 </resources>

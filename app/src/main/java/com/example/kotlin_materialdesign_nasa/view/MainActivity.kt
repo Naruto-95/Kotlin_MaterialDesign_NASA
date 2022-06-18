@@ -17,6 +17,7 @@ import com.example.kotlin_materialdesign_nasa.recycler.RecyclerFragment
 import com.example.kotlin_materialdesign_nasa.utils.*
 import com.example.kotlin_materialdesign_nasa.view.navigation.MyFragment
 import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
+import space.SpaceNotesFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, RecyclerFragment.newInstance()).addToBackStack("").commit()
+                .replace(R.id.container, SpaceNotesFragment.newInstance()).addToBackStack("").commit()
         }
 
 

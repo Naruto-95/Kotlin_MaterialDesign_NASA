@@ -32,7 +32,18 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15dp</item>
     </style>
+    <style name="FooTextAppearance" parent="">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">"sans-serif-medium"</item>
+        <item name="colorPrimary">@color/Red</item>
+        <item name="colorOnPrimary">@color/Orange</item>
+        <item name="colorPrimaryContainer">@color/Yellow</item>
+        <item name="colorOnPrimaryContainer">@color/LawnGreen</item>
+        <item name="colorPrimaryInverse">@color/DeepSkyBlue</item>
+        <item name="colorSecondary">@color/Blue</item>
+        <item name="colorOnSecondary">@color/Magenta</item>
 
+    </style>
 
 
 </resources>

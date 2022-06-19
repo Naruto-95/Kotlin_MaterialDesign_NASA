@@ -1,16 +1,20 @@
 package com.example.kotlin_materialdesign_nasa.view.picture
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.net.Uri
 import android.os.Bundle
-import android.transition.ChangeBounds
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.TextAppearanceSpan
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -109,11 +113,7 @@ class PictureFragment : Fragment() {
         imageAnimation()
 
 
-
     }
-
-
-
 
 
     private fun imageAnimation() {
@@ -190,7 +190,7 @@ class PictureFragment : Fragment() {
     //уловить состояние
     private fun behaviour() {
         val bottomsheet = BottomSheetBehavior.from(binding.btnSheet.bottomSheetContainer)
-        bottomsheet.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomsheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED
         bottomsheet.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
@@ -249,8 +249,30 @@ class PictureFragment : Fragment() {
                 binding.imageView.load(pictureOfTheDataAppState.pictureOfTheResponseData.hdurl) {
                     binding.btnSheet.title.text =
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
-                    binding.btnSheet.explanation.text =
+                    val textSpannable =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
+                    val Spannable = SpannableString(textSpannable)
+
+
+                    Spannable.setSpan(
+                        ForegroundColorSpan(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.Red
+
+                            )
+                        ),
+                        0, Spannable.length, SpannableString.SPAN_EXCLUSIVE_INCLUSIVE
+                    )
+
+
+                    // Spannable.setSpan(TextAppearanceSpan(context,R.style.FooTextAppearance),0,7,SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+
+                    binding.btnSheet.title.text = Spannable
+
+
+
                 }
             }
             is PictureOfTheDataAppState.Loading -> {
@@ -258,7 +280,7 @@ class PictureFragment : Fragment() {
                 binding.imageView.load(R.drawable.ic_no_photo_vector)
             }
             is PictureOfTheDataAppState.Error -> {
-               // binding.loading.visibility = View.GONE
+                // binding.loading.visibility = View.GONE
                 pictureOfTheDataAppState.error.message
 
             }

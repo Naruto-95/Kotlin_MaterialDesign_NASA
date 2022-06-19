@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, SpaceNotesFragment.newInstance()).addToBackStack("").commit()
+                .replace(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
         }
 
 

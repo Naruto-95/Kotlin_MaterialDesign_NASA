@@ -36,7 +36,9 @@
         <item name="mColor">@color/mGreen</item>
 
     </style>
-
+    <style name="mPurpleStyle.Splash"  >
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
 
 
 

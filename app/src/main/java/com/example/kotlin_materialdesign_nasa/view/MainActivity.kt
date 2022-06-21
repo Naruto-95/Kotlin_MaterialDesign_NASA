@@ -1,6 +1,7 @@
 package com.example.kotlin_materialdesign_nasa.view
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,19 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
 import com.example.kotlin_materialdesign_nasa.R
-import com.example.kotlin_materialdesign_nasa.animation.AnimationFragment
-import com.example.kotlin_materialdesign_nasa.animation.ConstraintSetFragment
-import com.example.kotlin_materialdesign_nasa.animation.ShadowAnimationFragment
 import com.example.kotlin_materialdesign_nasa.databinding.ActivityMainBinding
-import com.example.kotlin_materialdesign_nasa.recycler.RecyclerFragment
 import com.example.kotlin_materialdesign_nasa.utils.*
 import com.example.kotlin_materialdesign_nasa.view.navigation.MyFragment
 import com.example.kotlin_materialdesign_nasa.view.picture.PictureFragment
-import space.SpaceNotesFragment
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    @SuppressLint("Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(
@@ -32,8 +29,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
+                    .setCustomAnimations(
+                        R.anim.slide_in,
+                        R.anim.fade_out,
+                        R.anim.fade_in,
+                        R.anim.slide_out
+                    )
+                    .replace(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
+
+
+
         }
+
 
 
     }

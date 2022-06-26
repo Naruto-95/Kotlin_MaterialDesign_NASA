@@ -1,10 +1,14 @@
 package com.example.kotlin_materialdesign_nasa.view
 
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -27,19 +31,26 @@ class MainActivity : AppCompatActivity() {
         setTheme(getChoosingStyle(getStyleTheme()))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
+            ObjectAnimator.ofFloat(binding.imageView, View.ROTATION, 720f).setDuration(5000).start()
+            Handler(mainLooper).postDelayed({
+                supportFragmentManager.beginTransaction()
                     .setCustomAnimations(
                         R.anim.slide_in,
                         R.anim.fade_out,
                         R.anim.fade_in,
                         R.anim.slide_out
                     )
-                    .replace(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
+                    .add(R.id.container, PictureFragment.newInstance()).addToBackStack("").commit()
 
+
+
+            }, 3000)
 
 
         }
+
 
 
 

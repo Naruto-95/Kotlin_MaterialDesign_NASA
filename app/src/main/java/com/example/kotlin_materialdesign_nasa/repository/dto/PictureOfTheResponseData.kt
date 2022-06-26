@@ -9,4 +9,5 @@ data class PictureOfTheResponseData(
     val service_version: String,
     val title: String,
     val url: String
+    //
 )

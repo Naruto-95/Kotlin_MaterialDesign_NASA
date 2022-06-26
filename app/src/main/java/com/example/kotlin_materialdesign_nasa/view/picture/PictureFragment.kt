@@ -251,10 +251,10 @@ class PictureFragment : Fragment() {
                         pictureOfTheDataAppState.pictureOfTheResponseData.title
                     val textSpannable =
                         pictureOfTheDataAppState.pictureOfTheResponseData.explanation
-                    val Spannable = SpannableString(textSpannable)
+                    val spannable = SpannableString(textSpannable)
 
 
-                    Spannable.setSpan(
+                    spannable.setSpan(
                         ForegroundColorSpan(
                             ContextCompat.getColor(
                                 requireContext(),
@@ -262,14 +262,14 @@ class PictureFragment : Fragment() {
 
                             )
                         ),
-                        0, Spannable.length, SpannableString.SPAN_EXCLUSIVE_INCLUSIVE
+                        0, spannable.length, SpannableString.SPAN_EXCLUSIVE_INCLUSIVE
                     )
 
 
                     // Spannable.setSpan(TextAppearanceSpan(context,R.style.FooTextAppearance),0,7,SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
 
 
-                    binding.btnSheet.title.text = Spannable
+                    binding.btnSheet.title.text = spannable
 
 
 
